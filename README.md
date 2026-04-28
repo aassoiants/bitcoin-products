@@ -123,10 +123,35 @@ See [`data/sources/berlin-bitcoin-2012.md`](data/sources/berlin-bitcoin-2012.md)
 
 ---
 
+## Run locally
+
+Static site, no build needed:
+
+```bash
+git clone https://github.com/aassoiants/bitcoin-product-ideas
+cd bitcoin-product-ideas
+python -m http.server 8000 --directory site
+# open http://localhost:8000
+```
+
+Rebuild after editing data:
+
+```bash
+node utilities/build-products-json.mjs    # rewrites site/products.html
+node utilities/build-ideas-products.mjs   # rewrites site/ideas.html
+```
+
+The build scripts are plain Node (no dependencies). Run them from the repo root after editing any `.md` file in `data/`.
+
+---
+
 ## Coming next
 
-- **Sources page** at [bitcoinproducts.xyz/sources.html](https://bitcoinproducts.xyz/sources.html) — a filterable, searchable, sortable list of all 118 hackathons. Sort by year, organizer, type, count confidence, products indexed, products deeply analyzed. Built from [`data/sources/`](data/sources/).
-- **Dashboard** at [bitcoinproducts.xyz/dashboard.html](https://bitcoinproducts.xyz/dashboard.html) — arc view from altitude. How the space has shifted year by year, which problems got sustained attention, builder-recurrence patterns. For strategists and veterans reading the field from above.
+- **Sources page** at [bitcoinproducts.xyz/sources.html](https://bitcoinproducts.xyz/sources.html). A filterable, searchable, sortable list of all 118 hackathons. Sort by year, organizer, type, count confidence, products indexed, products deeply analyzed. Built from [`data/sources/`](data/sources/).
+- **Corpus expansion beyond hackathons.** The hackathon corpus is the starting point, not the ceiling. Bring in user-submitted products, VC-funded bitcoin companies, grant-funded products from organizations like HRF, Brink, Vinteum, Btrust, and other sources outside the hackathon track.
+- **Dashboard** at [bitcoinproducts.xyz/dashboard.html](https://bitcoinproducts.xyz/dashboard.html). A deep dive into bitcoin product history for strategists and researchers. How the space has shifted year by year, which problems got sustained attention, builder-recurrence patterns, alive-rates per category, era framing.
+- **Conversational interface over the archive.** Ask the data in plain English: "what bitcoin payment ideas have been tried since 2018 and didn't stick?", "which builders shipped multiple products across years?", "what ideas have zero alive past attempts?" The per-idea, per-product, and per-hackathon files become a queryable knowledge base for builders deciding what to ship next.
+- **Builder profiles.** Per-handle pages showing every product a builder has submitted across hackathons, repeat-builder patterns, eras of activity. Surfaces the people behind the products.
 
 ---
 
