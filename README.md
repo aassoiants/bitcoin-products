@@ -137,6 +137,10 @@ The fastest path is a pull request that edits a single `.md` file.
 
 ---
 
+## Acknowledgments
+
+The `categories` vocabulary on per-product entries is borrowed from [Bitcoin Optech](https://bitcoinops.org)'s 20 topic categories, with 8 layer-2 break-outs added (Cashu, Fedimint, Ark, Liquid, Statechain, RGB, Taproot Assets, Node Infrastructure). Optech's newsletter and topic taxonomy are essential reading for anyone working on bitcoin protocol or layer-2 development.
+
 ## License
 
 MIT. See [LICENSE](LICENSE).

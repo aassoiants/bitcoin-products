@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>404, Bitcoin Product Ideas</title>
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;700&family=Instrument+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<script>
+  // Redirect /idea/{slug} to /ideas.html#idea/{slug} and /product/{slug} to /products.html#product/{slug}
+  var path = window.location.pathname;
+  var ideaMatch = path.match(/^\/idea\/([a-z0-9-]+)$/);
+  if (ideaMatch) {
+    document.documentElement.style.display = 'none';
+    window.location.replace('/ideas.html#idea/' + ideaMatch[1]);
+  }
+  var productMatch = path.match(/^\/product\/([a-z0-9-]+)$/);
+  if (productMatch) {
+    document.documentElement.style.display = 'none';
+    window.location.replace('/products.html#product/' + productMatch[1]);
+  }
+</script>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  :root {
+    --green: #4ade80;
+    --green-faint: rgba(74,222,128,0.08);
+    --accent: #f5a623;
+    --accent-dim: rgba(245,166,35,0.3);
+    --heading: #e4e4e4;
+    --body: #8a9a88;
+    --chrome: rgba(74,222,128,0.45);
+    --bg: #0c0f0c;
+    --border: #1a2a1a;
+  }
+
+  body {
+    background: var(--bg);
+    color: var(--body);
+    font-family: 'Instrument Sans', sans-serif;
+    font-size: 15px;
+    line-height: 1.7;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  body::before {
+    content: '';
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 2px,
+      rgba(0,0,0,0.06) 2px,
+      rgba(0,0,0,0.06) 4px
+    );
+    pointer-events: none;
+    z-index: 1000;
+  }
+
+  .container {
+    padding: 2rem;
+    max-width: 460px;
+  }
+
+  .code {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.75rem;
+    color: var(--chrome);
+    margin-bottom: 1.5rem;
+  }
+
+  h1 {
+    font-family: 'Instrument Sans', sans-serif;
+    font-size: 1.15rem;
+    font-weight: 600;
+    color: var(--heading);
+    line-height: 1.5;
+    margin-bottom: 0.8rem;
+  }
+
+  p {
+    font-size: 0.88rem;
+    color: var(--body);
+    margin-bottom: 2rem;
+    line-height: 1.7;
+  }
+
+  .links {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+    align-items: center;
+  }
+
+  .links a {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.72rem;
+    text-decoration: none;
+    padding: 0.5rem 1.2rem;
+    border-radius: 4px;
+    transition: all 0.2s ease;
+  }
+
+  .links a.primary {
+    color: var(--bg);
+    background: var(--green);
+    font-weight: 600;
+  }
+
+  .links a.primary:hover {
+    background: #5ce898;
+    box-shadow: 0 0 20px rgba(74,222,128,0.25), 0 0 4px rgba(74,222,128,0.4);
+  }
+
+  .links a.secondary {
+    color: var(--accent);
+    border: 1px solid var(--accent-dim);
+  }
+
+  .links a.secondary:hover {
+    color: #ffbe4a;
+    border-color: #ffbe4a;
+    box-shadow: 0 0 12px rgba(245,166,35,0.15);
+  }
+</style>
+</head>
+<body>
+<div class="container">
+  <p class="code">$ cat idea/???, file not found</p>
+  <h1>Sorry, couldn't find this bitcoin product idea.</h1>
+  <p>Maybe you can recommend one?</p>
+  <div class="links">
+    <a href="https://forms.gle/dYP25U4DFwiKc9Gn7" target="_blank" rel="noopener" class="primary">$ submit --idea</a>
+    <a href="/ideas.html" class="secondary">back to all ideas</a>
+  </div>
+</div>
+</body>
+</html>

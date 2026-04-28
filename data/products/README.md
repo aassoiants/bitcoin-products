@@ -18,7 +18,7 @@ The bitcoin product archive in two layers, no overlap:
 | `team` | Builders or organization name as it appeared at the time. |
 | `builders` | Comma-separated list of canonical builder handles. |
 | `product_type` | Type tags from a controlled vocabulary: `wallet`, `app`, `service`, `tool`, `library`, `educational-resource`, etc. |
-| `categories` | What bitcoin space the product is in: `lightning`, `privacy`, `custody`, `mining`, etc. |
+| `categories` | What bitcoin space the product is in: `lightning`, `privacy`, `custody`, `mining`, etc. Vocabulary borrowed from [Bitcoin Optech](https://bitcoinops.org)'s 20 topic categories plus 8 layer-2 break-outs (Cashu, Fedimint, Ark, Liquid, Statechain, RGB, Taproot Assets, Node Infrastructure). |
 | `specs` | Bitcoin-protocol or layer-2 specs the product implements: `bip78`, `taproot`, `payjoin`, `lndk`, etc. |
 | `language` | Primary programming language(s). |
 | `source_code` | Canonical repo URL, or `none` if not surfaced. |

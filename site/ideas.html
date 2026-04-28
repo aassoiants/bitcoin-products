@@ -1,0 +1,2314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>bitcoinproducts.xyz // ideas</title>
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@300;400;500;700&family=Instrument+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  :root {
+    --green: #4ade80;
+    --green-dim: rgba(74,222,128,0.3);
+    --green-faint: rgba(74,222,128,0.08);
+    --accent: #f5a623;
+    --accent-dim: rgba(245,166,35,0.3);
+    --heading: #e4e4e4;
+    --body: #a8b8a6;
+    --body-dim: rgba(168,184,166,0.85);
+    --body-light: #a8b8a6;
+    --chrome: rgba(74,222,128,0.7);
+    --chrome-dim: rgba(74,222,128,0.4);
+    --bg: #0c0f0c;
+    --card-bg: #0e110e;
+    --card-hover: #111611;
+    --border: #1a2a1a;
+    --border-hover: #243824;
+    --rule: rgba(74,222,128,0.15);
+  }
+
+  html, body { background: var(--bg); }
+
+  /* ── SKIP LINK (a11y) ── */
+  .skip-link {
+    position: absolute;
+    top: -100px;
+    left: 1rem;
+    z-index: 10000;
+    background: var(--green);
+    color: var(--bg);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.75rem;
+    padding: 0.55rem 1rem;
+    text-decoration: none;
+    border-radius: 4px;
+    font-weight: 600;
+    transition: top 0.15s ease;
+  }
+  .skip-link:focus { top: 0.75rem; }
+
+  /* ── FOCUS VISIBLE ── */
+  a:focus-visible,
+  button:focus-visible,
+  .dare:focus-visible,
+  .fb-opt:focus-visible {
+    outline: 2px solid var(--green);
+    outline-offset: 2px;
+    border-radius: 2px;
+  }
+  .topnav-links a:focus-visible {
+    outline-offset: 4px;
+  }
+
+  body {
+    color: var(--body);
+    font-family: 'Instrument Sans', sans-serif;
+    font-size: 15px;
+    line-height: 1.7;
+    min-height: 100vh;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  body::before {
+    content: '';
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 2px,
+      rgba(0,0,0,0.06) 2px,
+      rgba(0,0,0,0.06) 4px
+    );
+    pointer-events: none;
+    z-index: 1000;
+  }
+
+  /* ── TOP NAV ── */
+  .topnav {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(12,15,12,0.88);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--border);
+  }
+
+  .topnav-inner {
+    max-width: 1080px;
+    margin: 0 auto;
+    padding: 0.85rem 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+  }
+
+  .topnav-mark {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.78rem;
+    color: var(--heading);
+    text-decoration: none;
+    letter-spacing: -0.005em;
+    transition: color 0.15s ease;
+    white-space: nowrap;
+  }
+  .topnav-mark:hover { color: var(--green); }
+  .topnav-mark .slash { color: var(--chrome-dim); margin: 0 0.15em; }
+
+  .topnav-beta {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.6rem;
+    color: var(--accent);
+    letter-spacing: 0.04em;
+    margin-left: 0.4rem;
+    font-weight: 400;
+  }
+
+  .topnav-links {
+    display: flex;
+    gap: 1.4rem;
+    align-items: center;
+  }
+
+  .topnav-links a {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.72rem;
+    color: var(--body-dim);
+    text-decoration: none;
+    letter-spacing: 0.02em;
+    padding: 0.25rem 0;
+    border-bottom: 1px solid transparent;
+    transition: all 0.15s ease;
+  }
+  .topnav-links a:hover {
+    color: var(--green);
+    border-bottom-color: var(--green-dim);
+  }
+  .topnav-links a.active {
+    color: var(--heading);
+    border-bottom-color: var(--chrome);
+  }
+
+  .topnav-links .queued-group {
+    position: relative;
+    display: inline-flex;
+    gap: 1.4rem;
+    align-items: center;
+    margin-left: 0.6rem;
+    padding-left: 1rem;
+    border-left: 1px dashed var(--border-hover);
+  }
+  .topnav-links .queued-group::after {
+    content: '(soon)';
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.64rem;
+    color: var(--accent);
+    letter-spacing: 0.03em;
+    opacity: 0.85;
+    margin-left: -0.6rem;
+  }
+  .topnav-links .queued {
+    font-family: 'JetBrains Mono', monospace;
+    color: var(--body-dim);
+    font-size: 0.72rem;
+    letter-spacing: 0.02em;
+    padding: 0.25rem 0;
+    opacity: 0.7;
+    cursor: not-allowed;
+    user-select: none;
+  }
+  .topnav { padding-bottom: 0.9rem; }
+
+  @media (max-width: 640px) {
+    .topnav-inner { padding: 0.7rem 1.25rem; gap: 1rem; }
+    .topnav-links { gap: 0.9rem; }
+    .topnav-links a { font-size: 0.72rem; }
+    .topnav-mark { font-size: 0.7rem; }
+    .topnav-links .queued-group { display: none; }
+    .topnav { padding-bottom: 0 !important; }
+  }
+
+  .page {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 3rem 2rem 2rem;
+  }
+
+  /* ── PAGE HEADER ── */
+  .page-head {
+    margin-bottom: 1.5rem;
+    padding-bottom: 1.25rem;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .page-head-kicker {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.68rem;
+    color: var(--chrome);
+    letter-spacing: 0.1em;
+    margin-bottom: 0.4rem;
+  }
+
+  .page-head h1 {
+    font-family: 'Instrument Sans', sans-serif;
+    font-size: 1.35rem;
+    font-weight: 600;
+    color: var(--heading);
+    letter-spacing: -0.01em;
+    margin-bottom: 0.35rem;
+  }
+
+  .page-head p {
+    font-size: 0.92rem;
+    color: var(--body-dim);
+    line-height: 1.6;
+    max-width: 60ch;
+  }
+
+  /* ── FILTERS ── */
+  .filter-bar {
+    display: flex; align-items: center; gap: 0.5rem;
+    padding: 0.7rem 0;
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    margin-bottom: 1.1rem;
+    flex-wrap: wrap;
+  }
+  .filter-bar-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.6rem; color: var(--chrome);
+    letter-spacing: 0.1em; margin-right: 0.3rem;
+    text-transform: lowercase;
+  }
+  .fb-dim { position: relative; }
+  .fb-btn {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.7rem; color: var(--body);
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 3px;
+    padding: 0.38rem 0.75rem;
+    cursor: pointer;
+    display: inline-flex; align-items: center; gap: 0.4rem;
+    transition: all 0.15s ease;
+  }
+  .fb-btn:hover { color: var(--green); border-color: var(--green-dim); }
+  .fb-btn .count {
+    font-size: 0.58rem; color: var(--accent);
+    background: rgba(245,166,35,0.08);
+    padding: 0 0.35rem; border-radius: 999px;
+    min-width: 1.2rem; text-align: center;
+  }
+  .fb-btn.open { color: var(--green); border-color: var(--green); background: var(--green-faint); }
+  .fb-btn .arrow { font-size: 0.55rem; color: var(--body-dim); transition: transform 0.15s ease; }
+  .fb-btn.open .arrow { transform: rotate(180deg); color: var(--green); }
+  .fb-pop {
+    display: none;
+    position: absolute;
+    top: calc(100% + 0.35rem); left: 0;
+    z-index: 50;
+    min-width: 220px;
+    background: var(--card-bg);
+    border: 1px solid var(--border-hover);
+    border-radius: 4px;
+    padding: 0.5rem;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.4);
+  }
+  .fb-pop.open { display: block; }
+  .fb-pop.align-right { left: auto; right: 0; }
+  .fb-opt {
+    display: flex; justify-content: space-between; align-items: center;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.68rem; color: var(--body);
+    padding: 0.3rem 0.5rem;
+    border-radius: 2px;
+    cursor: pointer;
+    transition: all 0.12s ease;
+  }
+  .fb-opt:hover { background: var(--green-faint); color: var(--green); }
+  .fb-opt.active { color: var(--green); background: var(--green-faint); }
+  .fb-opt .cbox {
+    display: inline-block;
+    width: 10px; height: 10px;
+    border: 1px solid var(--chrome-dim);
+    border-radius: 2px;
+    margin-right: 0.55rem;
+    vertical-align: -1px;
+  }
+  .fb-opt.active .cbox { background: var(--green); border-color: var(--green); }
+  .fb-opt.hidden { display: none; }
+  .fb-opt .count {
+    font-size: 0.58rem;
+    color: var(--chrome-dim);
+    font-variant-numeric: tabular-nums;
+  }
+  .fb-result {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.68rem; color: var(--chrome);
+    letter-spacing: 0.04em;
+    margin-bottom: 1rem;
+    min-height: 1.1rem;
+    display: flex; align-items: center; gap: 0.9rem; flex-wrap: wrap;
+  }
+  .fb-result b { color: var(--green); font-weight: 500; font-variant-numeric: tabular-nums; }
+  .fb-result.empty b { color: var(--accent); }
+  .fb-clear {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.65rem; color: var(--accent);
+    background: transparent;
+    border: 1px solid var(--accent-dim);
+    border-radius: 3px;
+    padding: 0.22rem 0.6rem;
+    cursor: pointer;
+    letter-spacing: 0.03em;
+    transition: all 0.15s ease;
+  }
+  .fb-clear:hover { color: #ffbe4a; border-color: #ffbe4a; background: rgba(245,166,35,0.05); }
+
+  .fb-chips {
+    display: inline-flex;
+    flex-wrap: wrap;
+    gap: 0.35rem;
+    align-items: center;
+  }
+  .fb-chip {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.62rem;
+    color: var(--green);
+    background: var(--green-faint);
+    border: 1px solid var(--green-dim);
+    border-radius: 3px;
+    padding: 0.2rem 0.25rem 0.2rem 0.55rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3rem;
+    letter-spacing: 0.02em;
+    line-height: 1;
+  }
+  .fb-chip-x {
+    background: transparent;
+    border: none;
+    color: var(--body-dim);
+    cursor: pointer;
+    padding: 0 0.25rem;
+    font-size: 0.95rem;
+    line-height: 1;
+    font-family: inherit;
+    border-radius: 2px;
+  }
+  .fb-chip-x:hover { color: var(--green); }
+
+  /* ── BOARD GRID ── */
+  .board {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1px;
+    background: var(--border);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    overflow: hidden;
+    margin-bottom: 2.5rem;
+  }
+
+  .dare {
+    background: var(--card-bg);
+    padding: 1.6rem;
+    transition: all 0.2s ease;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .dare:not(.dare-empty) { cursor: pointer; }
+  .dare:hover { background: var(--card-hover); }
+
+  .dare-empty {
+    display: grid;
+    place-items: center;
+    text-decoration: none;
+    background: transparent;
+    cursor: pointer;
+    min-height: 0;
+    padding: 2rem 1.6rem;
+  }
+  .dare.dare-empty h2 {
+    font-family: 'Instrument Sans', sans-serif;
+    color: rgba(138,154,136,0.35);
+    font-weight: 400;
+    font-style: italic;
+    margin: 0 !important;
+    text-align: center;
+    transition: color 0.2s ease;
+  }
+  .dare-empty:hover { background: transparent; }
+  .dare-empty:hover h2 { color: var(--accent); }
+
+  .dare::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 1px;
+    background: transparent;
+    transition: background 0.2s ease;
+  }
+  .dare:hover::before {
+    background: linear-gradient(90deg, transparent, var(--green-dim), transparent);
+  }
+
+  .dare h2 {
+    font-family: 'Instrument Sans', sans-serif;
+    font-size: 0.88rem;
+    font-weight: 600;
+    margin-bottom: 0.7rem;
+    color: var(--heading);
+    line-height: 1.45;
+    letter-spacing: -0.005em;
+  }
+
+  .dare p {
+    font-size: 0.85rem;
+    color: var(--body);
+    font-weight: 400;
+    line-height: 1.75;
+    flex: 1;
+  }
+  .dare p.card-full { display: none; }
+
+  .dare p a {
+    color: var(--accent);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    text-decoration-color: var(--accent-dim);
+    transition: all 0.15s ease;
+  }
+  .dare p a:hover {
+    color: #ffbe4a;
+    text-decoration-color: #ffbe4a;
+    text-shadow: 0 0 8px rgba(245,166,35,0.3);
+  }
+
+  .tag-footer {
+    display: flex;
+    justify-content: flex-end;
+    gap: 0.4rem;
+    margin-top: 0.5rem;
+    flex-wrap: wrap;
+    min-height: 4rem;
+    align-content: flex-end;
+  }
+  .card-count {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.58rem;
+    letter-spacing: 0.04em;
+    color: var(--body-dim);
+    margin-top: 1rem;
+    display: flex;
+    align-items: baseline;
+    gap: 0.4rem;
+    white-space: nowrap;
+  }
+  .card-count .num {
+    color: var(--accent);
+    font-variant-numeric: tabular-nums;
+    font-weight: 500;
+  }
+  .card-count.zero .num { color: var(--body-dim); }
+
+  .tag-oval {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.65rem;
+    letter-spacing: 0.03em;
+    padding: 0.28rem 0.7rem;
+    border-radius: 999px;
+  }
+  .tag-oval.wire {
+    color: var(--green);
+    border: 1px solid rgba(74,222,128,0.2);
+    background: rgba(74,222,128,0.05);
+  }
+  .tag-oval.build {
+    color: var(--accent);
+    border: 1px solid rgba(245,166,35,0.2);
+    background: rgba(245,166,35,0.05);
+  }
+  .tag-oval.understand {
+    color: #60a5fa;
+    border: 1px solid rgba(96,165,250,0.2);
+    background: rgba(96,165,250,0.05);
+  }
+
+  .dare.hidden { display: none; }
+
+  /* ── FLOATING ADD IDEA ── */
+  .add-idea-float {
+    position: fixed;
+    bottom: 1.5rem;
+    right: 1.5rem;
+    z-index: 999;
+    color: var(--chrome);
+    text-decoration: none;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.7rem;
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    padding: 0.6rem 1rem;
+    border-radius: 4px;
+    transition: all 0.2s ease;
+  }
+  .add-idea-float:hover {
+    color: var(--green);
+    border-color: var(--green);
+    background: rgba(74,222,128,0.05);
+    box-shadow: 0 0 12px rgba(74,222,128,0.15);
+  }
+
+  /* ── RESOURCES ── */
+  .resources {
+    margin-bottom: 3rem;
+  }
+  .res-header {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.72rem;
+    color: var(--chrome);
+    letter-spacing: 0.1em;
+    margin-bottom: 1.3rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+  .res-header::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--rule);
+  }
+  .res-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.55rem;
+  }
+  .res-list span {
+    font-family: 'JetBrains Mono', monospace;
+    color: var(--body);
+    font-size: 0.82rem;
+    line-height: 1.6;
+  }
+  .res-list span::before {
+    content: '$ ';
+    color: var(--chrome-dim);
+    font-size: 0.75rem;
+  }
+  .res-list a {
+    color: var(--accent);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    text-decoration-color: var(--accent-dim);
+    transition: all 0.15s ease;
+  }
+  .res-list a:hover {
+    color: #ffbe4a;
+    text-decoration-color: #ffbe4a;
+    text-shadow: 0 0 8px rgba(245,166,35,0.3);
+  }
+
+  /* ── FOOTER ── */
+  footer {
+    border-top: 1px solid var(--border);
+    padding-top: 2rem;
+    padding-bottom: 3rem;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.72rem;
+    color: var(--chrome);
+    line-height: 1.9;
+  }
+  footer a {
+    color: var(--body);
+    text-decoration: none;
+    border-bottom: 1px dashed var(--border-hover);
+    transition: all 0.15s ease;
+  }
+  footer a:hover { color: var(--heading); border-bottom-color: var(--chrome); }
+  footer .row { display: flex; justify-content: space-between; gap: 2rem; flex-wrap: wrap; }
+
+  .community-credits {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.72rem;
+    color: rgba(74,222,128,0.55);
+    padding: 1rem 0 1.5rem;
+    text-align: left;
+  }
+  .community-credits a {
+    color: var(--heading);
+    text-decoration: none;
+    border-bottom: 1px dashed var(--border-hover);
+    transition: all 0.15s ease;
+  }
+  .community-credits a:hover {
+    color: var(--green);
+    border-bottom-color: var(--green);
+  }
+
+  /* ── MODAL ── */
+  .modal-overlay {
+    display: none;
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(0,0,0,0.75);
+    z-index: 2000;
+    align-items: flex-start;
+    justify-content: center;
+    padding: 2rem;
+    cursor: pointer;
+    overflow-y: auto;
+  }
+  .modal-overlay.open { display: flex; }
+
+  .modal {
+    background: var(--card-bg);
+    border: 1px solid var(--border-hover);
+    border-radius: 8px;
+    max-width: 520px;
+    width: 100%;
+    padding: 2rem;
+    position: relative;
+    cursor: default;
+    box-shadow: 0 0 40px rgba(0,0,0,0.5), 0 0 80px rgba(74,222,128,0.04);
+  }
+  .modal-close {
+    position: absolute;
+    top: 0.6rem;
+    right: 0.75rem;
+    width: 32px;
+    height: 32px;
+    background: transparent;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    color: var(--body-dim);
+    font-size: 1.35rem;
+    line-height: 1;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'JetBrains Mono', monospace;
+    transition: all 0.15s ease;
+  }
+  .modal-close:hover {
+    color: var(--green);
+    border-color: var(--green-dim);
+    background: var(--green-faint);
+  }
+
+  .modal h2 {
+    font-family: 'Instrument Sans', sans-serif;
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--heading);
+    line-height: 1.45;
+    margin-bottom: 0.9rem;
+  }
+
+  .modal p {
+    font-size: 0.82rem;
+    color: var(--body);
+    line-height: 1.8;
+    margin-bottom: 1.2rem;
+  }
+
+  .modal p a {
+    color: var(--accent);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    text-decoration-color: var(--accent-dim);
+    transition: all 0.15s ease;
+  }
+  .modal p a:hover {
+    color: #ffbe4a;
+    text-decoration-color: #ffbe4a;
+    text-shadow: 0 0 8px rgba(245,166,35,0.3);
+  }
+
+  .modal-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 0.5rem;
+  }
+
+  .modal-copy {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.65rem;
+    color: var(--green);
+    background: var(--green-faint);
+    border: 1px solid rgba(74,222,128,0.2);
+    border-radius: 3px;
+    padding: 0.35rem 0.7rem;
+    cursor: pointer;
+    transition: all 0.15s ease;
+  }
+  .modal-copy:hover {
+    background: rgba(74,222,128,0.12);
+    border-color: var(--green);
+  }
+
+  /* ── MODAL PRODUCTS TABLE ── */
+  .products-block {
+    margin-top: 1.7rem;
+    padding-top: 1.6rem;
+    border-top: 1px dashed var(--border-hover);
+  }
+  .products-head {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.64rem;
+    letter-spacing: 0.1em;
+    color: var(--chrome);
+    margin-bottom: 0.9rem;
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 0.75rem;
+  }
+  .products-head .count-num { color: var(--accent); }
+  .products-head .caveat {
+    color: var(--body-dim);
+    font-size: 0.6rem;
+    letter-spacing: 0.06em;
+    text-transform: none;
+  }
+
+  .va-table {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.72rem;
+    line-height: 1.5;
+  }
+  .va-row {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 52px;
+    gap: 0.8rem;
+    padding: 0.7rem 0;
+    border-bottom: 1px solid var(--border);
+    transition: background 0.12s ease;
+  }
+  .va-row:last-child { border-bottom: none; }
+  .va-row:hover { background: rgba(74,222,128,0.03); }
+
+  .va-main { min-width: 0; }
+  .va-main .va-name {
+    color: var(--heading);
+    font-weight: 500;
+    margin-right: 0.5rem;
+  }
+  .va-main .va-slug {
+    color: var(--body-dim);
+    font-size: 0.66rem;
+    letter-spacing: 0.02em;
+  }
+  .va-main .va-mech {
+    display: block;
+    color: var(--body-dim);
+    font-family: 'Instrument Sans', sans-serif;
+    font-size: 0.76rem;
+    line-height: 1.55;
+    margin-top: 0.15rem;
+  }
+  .va-year {
+    color: var(--accent);
+    font-variant-numeric: tabular-nums;
+    text-align: right;
+    font-size: 0.7rem;
+    padding-top: 1px;
+  }
+
+  @media (max-width: 650px) {
+    .board { grid-template-columns: 1fr; }
+    .modal { padding: 1.5rem; }
+    .va-row { grid-template-columns: 10px 1fr 44px; gap: 0.5rem; }
+  }
+</style>
+</head>
+<body>
+
+<a href="#main" class="skip-link">skip to content</a>
+
+<nav class="topnav">
+  <div class="topnav-inner">
+    <a href="/" class="topnav-mark">bitcoinproducts<span class="slash">.</span>xyz <span class="topnav-beta">(beta)</span></a>
+    <div class="topnav-links">
+      <a href="/ideas.html" class="active" aria-current="page">ideas</a>
+      <a href="/products.html">products</a>
+      <span class="queued-group" role="group" aria-label="Coming soon: dashboard, sources.">
+        <span class="queued q-first" aria-disabled="true">dashboard</span>
+        <span class="queued q-last" aria-disabled="true">sources</span>
+      </span>
+    </div>
+  </div>
+</nav>
+
+<main id="main" class="page">
+
+  <div class="page-head">
+    <div class="page-head-kicker">// IDEAS.TXT</div>
+    <h1>gaps worth building in</h1>
+    <p>The ideas exist. They're just scattered everywhere. We collected them so you can stop searching and start building.</p>
+  </div>
+
+  <div class="filter-bar">
+    <span class="filter-bar-label">// filter</span>
+    <div class="fb-dim">
+      <button class="fb-btn" data-pop="pop-archetype" aria-haspopup="true" aria-expanded="false" aria-controls="pop-archetype">archetype <span class="arrow" aria-hidden="true">▾</span></button>
+      <div class="fb-pop" id="pop-archetype">
+        <div class="fb-opt" data-value="build"><span><span class="cbox"></span>build a new thing</span></div>
+        <div class="fb-opt" data-value="understand"><span><span class="cbox"></span>help them understand</span></div>
+        <div class="fb-opt" data-value="wire"><span><span class="cbox"></span>wire it up</span></div>
+      </div>
+    </div>
+    <div class="fb-dim">
+      <button class="fb-btn" data-pop="pop-category" aria-haspopup="true" aria-expanded="false" aria-controls="pop-category">category <span class="arrow" aria-hidden="true">▾</span></button>
+      <div class="fb-pop" id="pop-category">
+        <div class="fb-opt" data-value="ai"><span><span class="cbox"></span>AI</span></div>
+        <div class="fb-opt" data-value="builder-tools"><span><span class="cbox"></span>Builder tools</span></div>
+        <div class="fb-opt" data-value="commerce"><span><span class="cbox"></span>Commerce</span></div>
+        <div class="fb-opt" data-value="reach"><span><span class="cbox"></span>Reach</span></div>
+        <div class="fb-opt" data-value="sovereignty"><span><span class="cbox"></span>Sovereignty</span></div>
+        <div class="fb-opt" data-value="visibility"><span><span class="cbox"></span>Visibility</span></div>
+      </div>
+    </div>
+    <div class="fb-dim">
+      <button class="fb-btn" data-pop="pop-audience" aria-haspopup="true" aria-expanded="false" aria-controls="pop-audience">audience <span class="arrow" aria-hidden="true">▾</span></button>
+      <div class="fb-pop" id="pop-audience">
+        <div class="fb-opt" data-value="ai-agent-operator"><span><span class="cbox"></span>AI agent operator</span></div>
+        <div class="fb-opt" data-value="bitcoin-user"><span><span class="cbox"></span>bitcoin user</span></div>
+        <div class="fb-opt" data-value="builder"><span><span class="cbox"></span>builder</span></div>
+        <div class="fb-opt" data-value="creator-merchant"><span><span class="cbox"></span>creator + merchant</span></div>
+        <div class="fb-opt" data-value="custodian"><span><span class="cbox"></span>custodian</span></div>
+        <div class="fb-opt" data-value="gamer-game-designer"><span><span class="cbox"></span>gamer + game designer</span></div>
+        <div class="fb-opt" data-value="newcomer"><span><span class="cbox"></span>newcomer</span></div>
+        <div class="fb-opt" data-value="node-operator"><span><span class="cbox"></span>node operator</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="fb-result" id="fb-result"></div>
+
+  <div class="board">
+    <div class="dare" data-tags="build" data-category="reach" data-audience="bitcoin-user,newcomer" id="wallet-less-recipient">
+      <h2>Pay someone who doesn't have a wallet yet.</h2>
+      <p class="card-summary">Bitcoin users want to send sats to friends, family, or gig workers who haven't set up a wallet yet. Today's claim link flows are custodial, regional, or wound down. Widen the geography, make it non-custodial, or ship the next version.</p>
+      <p class="card-full">Bitcoin users want to send sats to friends, family, or gig workers who haven't set up a wallet yet. Hackathon builders have attempted this since 2013 (social-graph friend-loans, mobile proximity transfer, merchant-pushed loyalty rewards, LNURL claim pages) without a dominant solution. <a href="https://river.com/river-link" target="_blank" rel="noopener">River Link</a> generates a custodial claim link redeemable to any wallet (US-only). <a href="https://mutinywallet.com" target="_blank" rel="noopener">Mutiny Wallet</a> offered gift links with a temp web wallet but wound down in 2024. Cash App dropped $Cashtag bitcoin transfers in December 2024. Widen the geography, make it non-custodial, or ship the next version.</p>
+      <div class="tag-footer"><span class="tag-oval build">build a new thing</span></div>
+    </div>
+
+    <div class="dare" data-tags="wire,build" data-category="reach" data-audience="bitcoin-user,newcomer" id="cross-border-remittance">
+      <h2>Skip remittance fees when sending money across borders.</h2>
+      <p class="card-summary">Remittance fees hit 4-8% on mobile-money corridors. Bitcoin rails can route around them, but the map is a patchwork. Pick an underserved corridor or turn a receive-side rail into a sender product.</p>
+      <p class="card-full">Remittance is a daily lifeline; the cost varies wildly by corridor. Wise drove USD and EUR sub-1%, but mobile-money corridors (M-Pesa, Pix, MTN MoMo) run 4-8%. Bitcoin and Lightning can route around the bank rails. <a href="https://strike.me" target="_blank" rel="noopener">Strike</a> sends US outbound; <a href="https://bitnob.com" target="_blank" rel="noopener">Bitnob</a> covers African receive; <a href="https://tando.me" target="_blank" rel="noopener">Tando</a> lands Lightning on M-Pesa; <a href="https://8333.mobi" target="_blank" rel="noopener">Machankura</a> brings Lightning to USSD phones. The map is a patchwork. Pick an underserved corridor (EU to Africa, Gulf to South Asia), widen an existing service, or turn a receive-side rail into a complete sender product.</p>
+      <div class="tag-footer"><span class="tag-oval wire">wire it up</span><span class="tag-oval build">build a new thing</span></div>
+    </div>
+
+    <div class="dare" data-tags="build" data-category="reach" data-audience="bitcoin-user,builder" id="offline-bitcoin">
+      <h2>Make bitcoin work when the internet isn't.</h2>
+      <p class="card-summary">Bitcoin assumes internet. Where a regime cuts the connection or bandwidth is patchy, payments stop. Ship the wallet-level primitive for offline transfer that other wallets can plug into.</p>
+      <p class="card-full">Lightning assumes internet. So does most of bitcoin's payment flow. Where a regime cuts the connection, or connectivity is patchy, payments stop. Bitcoin has 14 years of attempts at this: Bluetooth offline transactions in the Android wallet back in 2012, then SMS bridges, then mesh-network experiments. But no shipped wallet-level primitive any other wallet can plug into. Bitchat (Jack Dorsey's offline mesh messaging) shows how big the design space is.</p>
+      <div class="tag-footer"><span class="tag-oval build">build a new thing</span></div>
+    </div>
+
+    <div class="dare" data-tags="wire" data-category="reach" data-audience="bitcoin-user,creator-merchant" id="lightning-on-the-web">
+      <h2>Pay or accept Lightning on a webpage without installing anything.</h2>
+      <p class="card-summary">Visitors land on pages that ask for sats and bounce because connecting a wallet means installing an extension or copying connection strings. The primitives exist piece by piece. Pick the slice the ecosystem leaves open and ship the next layer.</p>
+      <p class="card-full">Visitors land on pages that ask for sats and bounce because connecting a wallet means installing an extension or copying connection strings. <a href="https://github.com/getAlby/bitcoin-connect" target="_blank" rel="noopener">Bitcoin Connect</a> ships the visitor-side connection for any NWC wallet, <a href="https://btcpayserver.org" target="_blank" rel="noopener">BTCPay Server</a> handles the merchant accept side, and <a href="https://lightningaddress.com/" target="_blank" rel="noopener">Lightning Address</a> turns username@domain into a paste-anywhere identifier. Pick the slice the ecosystem leaves open and ship the next layer of Lightning's web story.</p>
+      <div class="tag-footer"><span class="tag-oval wire">wire it up</span></div>
+    </div>
+
+    <div class="dare" data-tags="build" data-category="reach" data-audience="bitcoin-user,builder" id="gen-z-bitcoin">
+      <h2>Build something in bitcoin that Gen Z would actually use.</h2>
+      <p class="card-summary">Nothing in bitcoin is built for how Gen Z uses the internet. The interfaces, the language, the onboarding. What if you had to earn their attention first?</p>
+      <p class="card-full">Nothing in bitcoin is built for how Gen Z uses the internet. The interfaces, the language, the onboarding. What if you had to earn their attention first? For inspiration, check <a href="https://skibidi.cash/" target="_blank" rel="noopener">skibidi.cash</a>.</p>
+      <div class="tag-footer"><span class="tag-oval build">build a new thing</span></div>
+    </div>
+
+    <div class="dare" data-tags="build" data-category="reach" data-audience="builder" id="bitcoin-as-product-enabler">
+      <h2>Use instant permissionless value transfer to unlock new product categories or improve existing ones.</h2>
+      <p class="card-summary">Most apps that could use bitcoin don't know it yet. What new product experiences can you build that use instant permissionless value transfer as an enabler, not the main feature?</p>
+      <p class="card-full">Most apps that could use bitcoin don't know it yet. What new product experiences can you build that use instant permissionless value transfer as an enabler, not the main feature?</p>
+      <div class="tag-footer"><span class="tag-oval build">build a new thing</span></div>
+    </div>
+
+    <div class="dare" data-tags="build" data-category="reach" data-audience="bitcoin-user,newcomer,creator-merchant" id="cash-bitcoin-kiosk">
+      <h2>Swap cash and bitcoin at a kiosk that's cheap, private, and self-custodial.</h2>
+      <p class="card-summary">Bitcoin ATMs charge 7-25% and require Know Your Customer identity checks. That leaves cash-preferring buyers without a cheap, private, self-custodial option. Shave the fee, drop the identity-check floor, or launch in an underserved geography.</p>
+      <p class="card-full">Public bitcoin ATMs let anyone (first-time buyers, privacy-conscious holders, cash-preferring travelers) swap between cash and bitcoin at 7-25% fees, with Know Your Customer (KYC) the norm. The landscape is country-bound: <a href="https://bitcoindepot.com" target="_blank" rel="noopener">Bitcoin Depot</a>, <a href="https://coinflip.tech" target="_blank" rel="noopener">CoinFlip</a>, <a href="https://libertyx.com" target="_blank" rel="noopener">LibertyX</a> (US); <a href="https://bitcoinwell.com" target="_blank" rel="noopener">Bitcoin Well</a> (Canada); <a href="https://athenabitcoin.com" target="_blank" rel="noopener">Athena</a> (LatAm); <a href="https://satoshipoint.io" target="_blank" rel="noopener">SatoshiPoint</a> (UK). <a href="https://www.bytefederal.com" target="_blank" rel="noopener">Byte Federal</a> pairs a self-custody wallet. None ship a sub-percent, non-KYC-for-small-buys, layer-2-first (Lightning, Liquid, Cashu, or Fedimint), self-custody-by-default, meetup-scale kiosk. <a href="https://github.com/21isenough/LightningATM" target="_blank" rel="noopener">LightningATM</a> is the DIY precedent. Launch in an underserved geography, shave the fee, drop the KYC floor, or package the hardware.</p>
+      <div class="tag-footer"><span class="tag-oval build">build a new thing</span></div>
+    </div>
+
+    <div class="dare" data-tags="wire,build" data-category="sovereignty" data-audience="bitcoin-user" id="advanced-custody">
+      <h2>Make advanced custody usable without being a cryptographer.</h2>
+      <p class="card-summary">Advanced bitcoin custody uses multisig and timelocks to survive key loss. Today that means descriptor-fluent DIY tools, recurring white-glove subscriptions, or bundled hardware where a third party holds one of the keys. Build the version that's as easy as password managers, self-serve on recovery, and works with hardware people already own.</p>
+      <p class="card-full">Advanced custody uses multisig and miniscript timelocks to survive key loss while supporting inheritance. A DIY tier ships free (<a href="https://sparrowwallet.com/" target="_blank" rel="noopener">Sparrow</a>, <a href="https://specter.solutions/" target="_blank" rel="noopener">Specter</a>, <a href="https://wizardsardine.com/liana/" target="_blank" rel="noopener">Liana</a>, <a href="https://nunchuk.io/" target="_blank" rel="noopener">Nunchuk</a>, <a href="https://theya.us/" target="_blank" rel="noopener">Theya</a>) for users comfortable with descriptors and PSBTs. A white-glove tier charges recurring fees for expert setup and recovery (<a href="https://casa.io/" target="_blank" rel="noopener">Casa</a>, <a href="https://unchained.com/" target="_blank" rel="noopener">Unchained</a>, <a href="https://anchorwatch.com/" target="_blank" rel="noopener">Anchorwatch</a>, <a href="https://onrampbitcoin.com/" target="_blank" rel="noopener">Onramp</a>). <a href="https://bitkey.build/" target="_blank" rel="noopener">Bitkey</a> bundles 3-key multisig into hardware with no subscription, but only with its own hardware and with Block holding a key. Build the version that's password-manager-easy, self-serve on recovery, and works with hardware wallets people already own.</p>
+      <div class="tag-footer"><span class="tag-oval wire">wire it up</span><span class="tag-oval build">build a new thing</span></div>
+    </div>
+
+    <div class="dare" data-tags="wire,build" data-category="sovereignty" data-audience="bitcoin-user" id="usable-bitcoin-privacy">
+      <h2>Ship bitcoin privacy tooling that a non-technical user can actually use.</h2>
+      <p class="card-summary">Privacy-conscious bitcoin holders want CoinJoin mixes, coin control, and transaction-graph breaks without opening a terminal. Today's tools are desktop-first or need a local node, and the coordinator layer thinned after 2024 enforcement. Make privacy mobile-first, ship an easy onboarding coordinator, or integrate privacy into the wallets people already use.</p>
+      <p class="card-full">Privacy-conscious bitcoin holders want CoinJoin mixes, coin control, and transaction-graph breaks without opening a terminal. <a href="https://wasabiwallet.io/" target="_blank" rel="noopener">Wasabi</a> runs WabiSabi CoinJoin rounds via GUI. <a href="https://sparrowwallet.com/" target="_blank" rel="noopener">Sparrow</a> ships coin control and PayJoin via desktop GUI. <a href="https://github.com/JoinMarket-Org/joinmarket-clientserver" target="_blank" rel="noopener">JoinMarket-Qt</a> needs a local Bitcoin Core node and manual configuration. Samourai Whirlpool shut down after a DOJ indictment in 2024; Wasabi's coordinator dissolved the same year, thinning the CoinJoin coordinator layer. Make privacy mobile-first, ship an easy-onboarding CoinJoin coordinator, or integrate privacy into the wallets people already use.</p>
+      <div class="tag-footer"><span class="tag-oval wire">wire it up</span><span class="tag-oval build">build a new thing</span></div>
+    </div>
+
+    <div class="dare" data-tags="build,understand" data-category="sovereignty" data-audience="bitcoin-user" id="cost-of-spending">
+      <h2>Tell people what it actually costs them to spend their bitcoin today.</h2>
+      <p class="card-summary">Most bitcoin holders have coins in multiple wallets with different cost bases. The tax simulation exists but is buried inside year-end tax software built for traders. Build the forward-looking spending tool: connect your wallets, see your basis, know before you tap.</p>
+      <p class="card-full">Most holders have coins in multiple wallets with different cost bases and no idea what the tax hit looks like if they spend right now. <a href="https://cointracking.info/" target="_blank" rel="noopener">CoinTracking</a> and <a href="https://koinly.io/" target="_blank" rel="noopener">Koinly</a> let you simulate a sale, but both are buried features in year-end tax software built for traders. Nobody's built the forward-looking version for everyday spending: connect your wallets, see your basis, know before you tap.</p>
+      <div class="tag-footer"><span class="tag-oval build">build a new thing</span><span class="tag-oval understand">help them understand</span></div>
+    </div>
+
+    <div class="dare" data-tags="build" data-category="sovereignty" data-audience="bitcoin-user,creator-merchant" id="local-bookkeeping">
+      <h2>Build a bookkeeping program for bitcoin that keeps your data local.</h2>
+      <p class="card-summary">A bitcoin business needs double-entry accounting, satoshi precision, and invoicing in one tool. Today's options are partly open-source, closed hosted SaaS, or can't handle satoshi precision at all. Ship the fully open-source local-first accounting stack with invoicing built in.</p>
+      <p class="card-full"><a href="https://clams.tech/" target="_blank" rel="noopener">Clams</a> is the closest thing: double-entry accounting with on-chain and Lightning support, fiat multi-currency, and cost basis tracking as of V1 Beta. But it's not fully open source and has no invoicing. <a href="https://btcpayserver.org/" target="_blank" rel="noopener">BTCPay</a> stops at the accounting boundary. <a href="https://zaprite.com/" target="_blank" rel="noopener">Zaprite</a> has the best invoicing UX but it's closed-source SaaS. GnuCash can't handle satoshi precision.</p>
+      <div class="tag-footer"><span class="tag-oval build">build a new thing</span></div>
+    </div>
+
+    <div class="dare" data-tags="wire,build" data-category="sovereignty" data-audience="node-operator" id="node-operator-mempool-policy">
+      <h2>Give bitcoin node operators policy control over their own mempool.</h2>
+      <p class="card-summary">Every bitcoin node operator has the right to choose which transactions their node relays. Exercising that right today means running a fork. Ship a plugin system, design policy profiles, and explain the consequences of these decisions.</p>
+      <p class="card-full">Every bitcoin node operator has the right to decide which valid transactions their node accepts and relays. That's policy, not consensus: the transactions stay valid on the network either way; the node just chooses what to propagate. bitcoin.conf exposes some policy: relay fees, a handful of standardness knobs like permitbaremultisig. But the policies operators actually argue over today, like filtering inscription-shaped witnesses or rejecting specific script patterns, aren't on that config surface. <a href="https://bitcoinknots.org/" target="_blank" rel="noopener">Bitcoin Knots</a> and Peter Todd's <a href="https://github.com/petertodd/bitcoin" target="_blank" rel="noopener">Libre Relay</a> exist as forks because new policy logic has to be patched into the codebase, not toggled in a config file. A <a href="https://delvingbitcoin.org/t/proposal-pluggable-filter-framework/2064" target="_blank" rel="noopener">Pluggable Filter Framework proposal</a> surfaced on Delving Bitcoin in October 2025 but is still discussion-stage. Pick up the proposal, ship a plugin system, design policy profiles that don't require running a fork, and explain the consequences of each policy choice.</p>
+      <div class="tag-footer"><span class="tag-oval wire">wire it up</span><span class="tag-oval build">build a new thing</span></div>
+    </div>
+
+    <div class="dare" data-tags="wire,build" data-category="sovereignty" data-audience="node-operator" id="lightning-channel-autopilot">
+      <h2>Automate opening, closing, rebalancing, and fee-setting for Lightning channels.</h2>
+      <p class="card-summary">Lightning node operators make four decisions at once: which peers to open channels with, when to rebalance, what fees to charge, and when to close. Core Lightning has a daemon that stitches them together. LND (Lightning Network Daemon) doesn't. Port the pattern, or ship the LND-native autopilot.</p>
+      <p class="card-full">Lightning node operators make four liquidity decisions at once: which peers to open channels with, when to rebalance, what fees to charge, and when to close. <a href="https://github.com/alexbosworth/balanceofsatoshis" target="_blank" rel="noopener">Balance of Satoshis</a> and <a href="https://github.com/apotdevin/thunderhub" target="_blank" rel="noopener">Thunderhub</a> provide the levers manually on LND. <a href="https://github.com/accumulator/charge-lnd" target="_blank" rel="noopener">charge-lnd</a> sets fees by policy; <a href="https://github.com/lightninglabs/loop" target="_blank" rel="noopener">Loop</a> does on-chain swaps, <a href="https://github.com/ElementsProject/peerswap" target="_blank" rel="noopener">Peerswap</a> does peer-to-peer swaps. <a href="https://github.com/cryptosharks131/lndg" target="_blank" rel="noopener">LNDg</a> automates fees and rebalancing with a web UI but doesn't open or close channels. On CLN, <a href="https://github.com/ksedgwic/clboss" target="_blank" rel="noopener">clboss</a> already stitches open, rebalance, and fees together. Port the pattern to LND, build an LND-native autopilot, or orchestrate the existing LND tools into one integrated daemon.</p>
+      <div class="tag-footer"><span class="tag-oval wire">wire it up</span><span class="tag-oval build">build a new thing</span></div>
+    </div>
+
+    <div class="dare" data-tags="wire,build" data-category="sovereignty" data-audience="custodian" id="proof-of-reserves">
+      <h2>Prove bitcoin reserves without revealing UTXOs, ledgers, or per-customer balances.</h2>
+      <p class="card-summary">Bitcoin custodians must prove adequate reserves without revealing UTXOs, ledgers, or per-customer balances. Today's Merkle and zero-knowledge proofs rely on custodian infrastructure or auditor trust. Ship continuous proofs, customer-verifiable inclusion without audit trust, or make the proof on chain-verifiable.</p>
+      <p class="card-full">Bitcoin custodians must prove they hold adequate bitcoin reserves without revealing UTXOs, ledgers, or per-customer balances. <a href="https://www.kraken.com/proof-of-reserves" target="_blank" rel="noopener">Kraken</a> publishes Merkle-tree inclusion proofs with liability verification via an independent accountancy; <a href="https://www.binance.com/en/proof-of-reserves" target="_blank" rel="noopener">Binance</a> ships Merkle-tree proofs but omits liabilities. <a href="https://www.okx.com/proof-of-reserves" target="_blank" rel="noopener">OKX</a> uses zero-knowledge proofs to hide UTXOs and amounts while showing assets exceed liabilities; <a href="https://learn.backpack.exchange/articles/proof-of-reserves-at-backpack" target="_blank" rel="noopener">Backpack</a> publishes daily zero-knowledge proofs anyone can verify. All rely on custodian-controlled infrastructure or auditor trust. Ship continuous proofs, customer-verifiable inclusion without audit trust, or make the proof on-chain-verifiable.</p>
+      <div class="tag-footer"><span class="tag-oval wire">wire it up</span><span class="tag-oval build">build a new thing</span></div>
+    </div>
+
+    <div class="dare" data-tags="wire,build" data-category="visibility" data-audience="bitcoin-user,node-operator" id="network-observability">
+      <h2>See what's actually happening on the bitcoin network.</h2>
+      <p class="card-summary">Analysts and node operators want real-time visibility into mempool, forks, fee dynamics, propagation, and double-spend conflicts. Each surface has a specialist tool. No unified observatory covers them together. Build it, cover an uncovered layer, or ship an open cross-tool feed.</p>
+      <p class="card-full">Analysts, researchers, and node operators want real-time visibility into bitcoin network activity across mempool, forks, fee dynamics, propagation, and double-spend conflicts. Each surface has a specialist tool: <a href="https://mempool.space/" target="_blank" rel="noopener">mempool.space</a> for mempool and fees, <a href="https://forkmonitor.info/" target="_blank" rel="noopener">forkmonitor.info</a> for consensus anomalies, <a href="https://bitnodes.io/" target="_blank" rel="noopener">Bitnodes</a> for node census. No unified observatory covers them together, and new layers keep appearing. Ship the unified bitcoin network observatory, cover an uncovered layer, or build the open cross-tool feed anyone can subscribe to.</p>
+      <div class="tag-footer"><span class="tag-oval wire">wire it up</span><span class="tag-oval build">build a new thing</span></div>
+    </div>
+
+    <div class="dare" data-tags="wire,build" data-category="visibility" data-audience="node-operator" id="node-activity-viewer">
+      <h2>Show people what their bitcoin node is actually doing.</h2>
+      <p class="card-summary">Bitcoin Core proposed a showcase design for visualizing node activity. Nobody has built it as a real desktop app yet. The design exists. The implementation doesn't.</p>
+      <p class="card-full">Bitcoin Core proposed a <a href="https://bitcoincore.app/showcase/" target="_blank" rel="noopener">showcase design</a> for visualizing node activity. Nobody has built it as a real desktop app yet. The design exists. The implementation doesn't.</p>
+      <div class="tag-footer"><span class="tag-oval wire">wire it up</span><span class="tag-oval build">build a new thing</span></div>
+    </div>
+
+    <div class="dare" data-tags="understand" data-category="visibility" data-audience="newcomer" id="learn-by-doing">
+      <h2>Give newcomers an end-to-end bitcoin learning flow from first click to confident self-custody.</h2>
+      <p class="card-summary">Bitcoin newcomers learn by piecing tools together. Each option covers a meaningful slice. None is designed to hand off to the next. Build the cohesive, hands-on learning arc from beginner to mastery.</p>
+      <p class="card-full">Bitcoin newcomers learn by piecing tools together: <a href="https://andersbrownworth.com/blockchain" target="_blank" rel="noopener">Anders Brownworth</a> for concepts, <a href="https://learnmeabitcoin.com/" target="_blank" rel="noopener">Learn Me A Bitcoin</a> for mechanics, <a href="https://myfirstbitcoin.io/" target="_blank" rel="noopener">Mi Primer Bitcoin</a> in 25+ languages, <a href="https://planb.network/" target="_blank" rel="noopener">Plan B Network</a>, <a href="https://learn.saylor.org/" target="_blank" rel="noopener">Saylor Academy</a>, and <a href="https://www.youtube.com/@BTCSessions" target="_blank" rel="noopener">BTC Sessions</a> for video walkthroughs. Each covers a meaningful slice. None is designed to hand off to the next. Mobile-native interactive is thin, and non-English-first options outside Spanish and Portuguese are limited. Build the cohesive, hands-on learning arc from beginner to mastery.</p>
+      <div class="tag-footer"><span class="tag-oval understand">help them understand</span></div>
+    </div>
+
+    <div class="dare" data-tags="build,understand" data-category="visibility" data-audience="bitcoin-user,newcomer" id="quantum-explainer">
+      <h2>Explain bitcoin's quantum risk so anyone can get it.</h2>
+      <p class="card-summary">The topic is complex and most explanations are either too technical or too high level. There's room for something interactive, visual, and honest about the cryptography and potential futures.</p>
+      <p class="card-full">The topic is complex and most explanations are either too technical or too high level. There's room for something interactive, visual, and honest about the cryptography and potential futures.</p>
+      <div class="tag-footer"><span class="tag-oval build">build a new thing</span><span class="tag-oval understand">help them understand</span></div>
+    </div>
+
+    <div class="dare" data-tags="build,understand" data-category="visibility" data-audience="bitcoin-user,newcomer" id="collect-bitcoin-sentiment">
+      <h2>Collect the good things real people say about bitcoin.</h2>
+      <p class="card-summary">It's time to collect positive, real testimonials from actual bitcoin users. Not influencers, not maxis. Just regular people saying what it did for them, presented in a compelling way.</p>
+      <p class="card-full">It's time to collect positive, real testimonials from actual bitcoin users. Not influencers, not maxis. Just regular people saying what it did for them, presented in a compelling way.</p>
+      <div class="tag-footer"><span class="tag-oval build">build a new thing</span><span class="tag-oval understand">help them understand</span></div>
+    </div>
+
+    <div class="dare" data-tags="wire,build" data-category="commerce" data-audience="creator-merchant" id="contributor-autopay">
+      <h2>Auto-pay contributors for a specific unit of work.</h2>
+      <p class="card-summary">Maintainers want to pay open-source contributors in sats when their work ships. Today's tools auto-pay in fiat, distribute across dependency trees, or keep the on-merge flow private. Port the mechanics to bitcoin, open-source the pattern, or ship a GitHub Action that pays sats on merge.</p>
+      <p class="card-full">Maintainers want to pay open-source contributors in sats when their work ships, but no end-to-end tool does this today. Hackathon builders have attempted this across four angles (AI training payments, PR-merge bounties, L402 workforce payments, activist bounties) without a dominant solution. <a href="https://algora.io" target="_blank" rel="noopener">Algora</a> auto-pays on PR merge via Stripe, fiat-only. <a href="https://thanks.dev" target="_blank" rel="noopener">thanks.dev</a> distributes periodically across dependency trees, not per unit of work. <a href="https://planb.network" target="_blank" rel="noopener">PlanB Network</a> runs a Lightning-on-merge flow internally but hasn't open-sourced it. Port Algora's mechanics to bitcoin, open-source a pattern similar to PlanB, or ship a GitHub Action that pays sats on merge.</p>
+      <div class="tag-footer"><span class="tag-oval wire">wire it up</span><span class="tag-oval build">build a new thing</span></div>
+    </div>
+
+    <div class="dare" data-tags="build" data-category="commerce" data-audience="gamer-game-designer" id="bitcoin-as-game-rail">
+      <h2>Build a game where bitcoin is the payment rail.</h2>
+      <p class="card-summary">Game designers and players wanting real economic stakes have a narrow set of bitcoin options. Each shipped product reaches a narrow audience. Build the bitcoin-native game at scale, deepen player-to-player markets, or make the rail easy for indie studios without platform custody.</p>
+      <p class="card-full">Game designers and players wanting real economic stakes have a narrow set of options. <a href="https://thndr.games/" target="_blank" rel="noopener">THNDR Games</a> runs mobile skill-games like Tetro Tiles, Bitcoin Bounce, and Clinch where top scorers split a prize pot paid in sats. <a href="https://zbd.gg/" target="_blank" rel="noopener">ZBD</a> ships developer tools that embed Lightning payments and rewards into web and mobile titles. <a href="https://sovereigncraft.com/" target="_blank" rel="noopener">Sovereigncraft</a> pipes real sats through a Minecraft server with player-driven nations and economies. Each reaches a narrow audience. Build the bitcoin-native game at scale, deepen player-to-player markets, or make the rail easy for indie studios without platform custody.</p>
+      <div class="tag-footer"><span class="tag-oval build">build a new thing</span></div>
+    </div>
+
+    <div class="dare" data-tags="wire,build" data-category="commerce" data-audience="bitcoin-user" id="bet-settlement">
+      <h2>Settle a real-world bet or condition on-chain without a house.</h2>
+      <p class="card-summary">Friends settle bets on sports, elections, and weather every day. In bitcoin that means trusting a sportsbook with custody or rolling your own Discreet Log Contract setup. The bitcoin rails exist. Ship the consumer product.</p>
+      <p class="card-full">Friends settle bets on sports, elections, and weather every day. In bitcoin, that means trusting a sportsbook with custody or building your own DLC setup. <a href="https://thunderpick.io/" target="_blank" rel="noopener">Thunderpick</a> and its peers take custody. <a href="https://polymarket.com/" target="_blank" rel="noopener">Polymarket</a> proved non-custodial prediction markets work at scale, but on Polygon with USDC, not bitcoin. <a href="https://dlcmarkets.com/" target="_blank" rel="noopener">DLC Markets</a> and <a href="https://lava.xyz/" target="_blank" rel="noopener">Lava</a> ship Discreet Log Contracts for institutional derivatives and loans. <a href="https://github.com/bennyhodl/dlcdevkit" target="_blank" rel="noopener">dlcdevkit</a> is the dev toolkit. Atomic Finance shipped a consumer DLC app and sunset it in late 2025. <a href="https://benschroth.com/blog/dlcdevkit-beyond/" target="_blank" rel="noopener">Son of Liberty</a> wraps dlcdevkit into a friend-bet flow for Umbrel and Start9 nodes. The bitcoin rails exist. The consumer product doesn't.</p>
+      <div class="tag-footer"><span class="tag-oval wire">wire it up</span><span class="tag-oval build">build a new thing</span></div>
+    </div>
+
+    <div class="dare" data-tags="wire,build" data-category="commerce" data-audience="creator-merchant" id="monetize-per-use">
+      <h2>Monetize per-use content or services via bitcoin micropayments.</h2>
+      <p class="card-summary">Creators want to charge for one article or song without asking readers to commit to a monthly subscription. Tipping flows exist but don't gate content. Build the per-use paywall creators and AI services can drop in with no payment backend to run.</p>
+      <p class="card-full">Most creator monetization comes through subscriptions. Patreon, Substack, and YouTube Premium ask readers to commit to a monthly fee, even if they only want one article or song. Nostr zaps let readers tip a creator per post, but tipping isn't a paywall: the reader gets the content for free either way. A creator (or AI service) who wants to actually charge for one specific piece, with no monthly commitment from the reader and no payment backend to run, has no good option.</p>
+      <div class="tag-footer"><span class="tag-oval wire">wire it up</span><span class="tag-oval build">build a new thing</span></div>
+    </div>
+
+    <div class="dare" data-tags="wire,build" data-category="commerce" data-audience="creator-merchant" id="small-merchant-acceptance">
+      <h2>Build the small merchant bitcoin acceptance into a simplified experience.</h2>
+      <p class="card-summary">Most bitcoin wallets give merchants a receive screen. A real point of sale has preset items, a keypad, payment history, and clean accounting export. Today's options are self-hosted server setups, custodial mobile apps, or scattered features. Ship the open self-hostable cohesive mobile POS.</p>
+      <p class="card-full">Most bitcoin wallets give merchants a receive screen. That's not a POS. A POS has preset items, a keypad, notes, payment history, and a way to export it all. <a href="https://btcpayserver.org/" target="_blank" rel="noopener">BTCPay Server</a> has this but requires hosting your own server. <a href="https://www.walletofsatoshi.com/" target="_blank" rel="noopener">Wallet of Satoshi</a> and <a href="https://breez.technology/" target="_blank" rel="noopener">Breez</a> have it as mobile apps, but neither tracks payment rails or exports clean accounting data. <a href="https://squareup.com/us/en/press/block-to-roll-out-bitcoin-payments-on-square" target="_blank" rel="noopener">Square</a> shipped Lightning acceptance to its merchant base in 2025 (custodial-via-Square). <a href="https://coinsnap.io/pos/" target="_blank" rel="noopener">Coinsnap</a> ships a self-custodial mobile POS. The open self-hostable cohesive stack (preset items, keypad, price display in customer currency, clean accounting export, no server keys) doesn't exist.</p>
+      <div class="tag-footer"><span class="tag-oval wire">wire it up</span><span class="tag-oval build">build a new thing</span></div>
+    </div>
+
+    <div class="dare" data-tags="wire,build" data-category="commerce" data-audience="creator-merchant,bitcoin-user" id="p2p-marketplace">
+      <h2>Run a peer-to-peer bitcoin marketplace without a centralized merchant account.</h2>
+      <p class="card-summary">A bitcoin marketplace needs listings, reputation, escrow, and decentralized hosting. Past attempts went centralized and got shut down, or ran out of funding. The primitives exist today as separate pieces. Assemble them into the marketplace nobody can shut down.</p>
+      <p class="card-full">Silk Road (2011-2013) ran the first bitcoin marketplace at scale, with thousands of sellers, search, reviews, and escrow. It was centralized, and the FBI shut it down. <a href="https://openbazaar.org" target="_blank" rel="noopener">OpenBazaar</a> tried to port that shape without a central operator and ran out of funding in 2021. <a href="https://plebeian.market" target="_blank" rel="noopener">Plebeian Market</a> ships a self-hostable Nostr marketplace with Lightning checkout, but no escrow or reputation layer. <a href="https://github.com/storopoli/scrow" target="_blank" rel="noopener">Scrow</a> provides non-custodial multisig escrow on Nostr as a primitive. The pieces exist. The marketplace that assembles them doesn't.</p>
+      <div class="tag-footer"><span class="tag-oval wire">wire it up</span><span class="tag-oval build">build a new thing</span></div>
+    </div>
+
+    <div class="dare" data-tags="wire,build" data-category="commerce" data-audience="bitcoin-user" id="monetize-unsolicited-contact">
+      <h2>Monetize unsolicited contact to invert the spam economy.</h2>
+      <p class="card-summary">Senders blast DMs and emails for free while recipients eat the noise. Earn.com proved sender-pays-recipient works at scale, then got acquired and shut down. The rails exist across Lightning and Nostr. Build the cross-channel consumer gate.</p>
+      <p class="card-full">Earn.com validated sender-pays-recipient at scale in 2015-2019 (hundreds of thousands of users, millions in revenue) before Coinbase acquired and shut it down. Nothing has filled the gap since. <a href="https://linkedin.com" target="_blank" rel="noopener">LinkedIn InMail</a> charges senders but keeps the fee; recipients get nothing. <a href="https://tanstaafl.email" target="_blank" rel="noopener">Tanstaafl</a> ships Lightning-gated email today, but senders need a Lightning wallet. Nostr's <a href="https://nips.nostr.com/57" target="_blank" rel="noopener">NIP-57 Zaps</a> give clients the payment rail; no major client ships a pay-to-DM toggle. The rails exist. The cross-channel consumer gate doesn't.</p>
+      <div class="tag-footer"><span class="tag-oval wire">wire it up</span><span class="tag-oval build">build a new thing</span></div>
+    </div>
+
+    <div class="dare" data-tags="wire,build" data-category="commerce" data-audience="bitcoin-user" id="cross-crypto-swap">
+      <h2>Swap bitcoin for another cryptocurrency peer-to-peer without a centralized exchange.</h2>
+      <p class="card-summary">Bitcoin holders swapping sats for altcoins or stablecoins choose between centralized exchanges and imperfect decentralized options. The primitives work pair by pair. Build the peer-to-peer layer that covers arbitrary pairs.</p>
+      <p class="card-full">Bitcoin holders swapping sats for altcoins or stablecoins choose between centralized exchanges and imperfect decentralized options. <a href="https://thorchain.org" target="_blank" rel="noopener">THORChain</a> and <a href="https://mayaprotocol.com" target="_blank" rel="noopener">Maya</a> route through shared liquidity pools: non-custodial but not P2P, and governance can freeze funds. <a href="https://bisq.network" target="_blank" rel="noopener">Bisq</a> matches counterparties directly via multisig escrow, not atomic. <a href="https://eigenwallet.org" target="_blank" rel="noopener">Eigenwallet</a> is a P2P atomic swap for BTC ↔ XMR only; scriptless-script doesn't generalize to other altcoins. The primitives work pair-by-pair. The P2P layer across arbitrary pairs doesn't exist.</p>
+      <div class="tag-footer"><span class="tag-oval wire">wire it up</span><span class="tag-oval build">build a new thing</span></div>
+    </div>
+
+    <div class="dare" data-tags="wire" data-category="builder-tools" data-audience="builder" id="experiment-with-bitcoin-code">
+      <h2>Build a way to experiment with bitcoin/L2 code or networks without touching mainnet.</h2>
+      <p class="card-summary">Builders working on a new bitcoin or L2 protocol roll their own environment or wait for testnet. Lightning has a one-click regtest GUI. Cashu, Fedimint, Ark, and statechains don't. Ship the GUI for the layer the ecosystem hasn't covered.</p>
+      <p class="card-full">Polar gives Lightning developers a one-click regtest network. It covers Lightning's basic flows but not newer features like BOLT-12 or splicing. For Cashu, Fedimint, Ark, and statechains there are docker scripts and shell demos but no Polar-class GUI equivalent. At the L1 layer, BitScript helped with script execution but is wound down. Warnet handles network-scale experimentation for Bitcoin Core research. Most builders working on a new bitcoin/L2 protocol roll their own environment or wait for testnet. The shape exists. The GUI coverage doesn't.</p>
+      <div class="tag-footer"><span class="tag-oval wire">wire it up</span></div>
+    </div>
+
+    <div class="dare" data-tags="wire" data-category="builder-tools" data-audience="builder" id="wallet-library-primitives">
+      <h2>Build the wallet-library support for bitcoin operations, primitives, and features that isn't there yet.</h2>
+      <p class="card-summary">Most wallets build on one of three bitcoin dev kits. Each kit has the operations it was built around. Operations these libraries don't yet expose need filling in. Pick an unexposed primitive and ship it as a library addition.</p>
+      <p class="card-full">Most wallets build on <a href="https://bitcoindevkit.org/" target="_blank" rel="noopener">BDK</a>, <a href="https://lightningdevkit.org/" target="_blank" rel="noopener">LDK</a>, or <a href="https://github.com/bitcoinj/bitcoinj" target="_blank" rel="noopener">BitcoinJ</a>. Each library has the operations it was built around: multisig construction and <a href="https://github.com/bitcoinj/bitcoinj/commit/bc47fccaebe2a2be08af4aedab30e92db99d7ad4" target="_blank" rel="noopener">background autosave</a> in BitcoinJ, channel management in LDK, descriptor wallets in BDK. The operations these libraries don't yet expose need filling in. A wallet that wants to ship one either writes from spec or drops the operation.</p>
+      <div class="tag-footer"><span class="tag-oval wire">wire it up</span></div>
+    </div>
+
+    <div class="dare" data-tags="build" data-category="builder-tools" data-audience="builder" id="ui-component-library">
+      <h2>Build the UI component library bitcoin doesn't have yet.</h2>
+      <p class="card-summary">Every bitcoin app starts the same way: building a balance display, an address formatter, a block clock from scratch. Bitcoin's closest component library covers a narrow slice, with no community directory. Build the next layer or extend what's there.</p>
+      <p class="card-full">Every new bitcoin app starts the same way: building a balance display, an address formatter, a block clock. From scratch. ShadCN solved this for web UI with a <a href="https://ui.shadcn.com/docs/directory" target="_blank" rel="noopener">community directory</a>. <a href="https://bitcoinui.org/" target="_blank" rel="noopener">Bitcoin UI Kit</a> is the closest precedent (React components for PasswordInput, CurrencyInput, QRCode, and similar primitives), but coverage is narrow and there's no community directory. Build the next layer or extend what's there.</p>
+      <div class="tag-footer"><span class="tag-oval build">build a new thing</span></div>
+    </div>
+
+    <div class="dare" data-tags="wire" data-category="builder-tools" data-audience="builder" id="bitcoin-features-in-wallets">
+      <h2>Add impactful bitcoin features to the wallets people already use.</h2>
+      <p class="card-summary">Reference implementations for bitcoin features ship faster than wallets adopt them. The bottleneck is language bindings: Java for one wallet, Swift for another, Python for a third. Pick a feature, pick a wallet's language, and ship the binding.</p>
+      <p class="card-full">Reference implementations ship faster than wallet adoption. Payjoin is the canonical example: <a href="https://payjoindevkit.org/" target="_blank" rel="noopener">Payjoin Dev Kit</a> exists, and <a href="https://www.bullbitcoin.com/" target="_blank" rel="noopener">Bull Bitcoin</a> and <a href="https://cakewallet.com/" target="_blank" rel="noopener">Cake Wallet</a> have shipped v2 integrations, but that's two wallets. The work is mostly language bindings: Java for Sparrow, Swift for FullyNoded, C++ for Bitcoin Core and Nunchuk, Python for Electrum, Dart for Aqua. Same shape applies to other features waiting for bindings.</p>
+      <div class="tag-footer"><span class="tag-oval wire">wire it up</span></div>
+    </div>
+
+    <div class="dare" data-tags="build,understand" data-category="builder-tools" data-audience="builder" id="diy-bitcoin-hardware">
+      <h2>Make DIY bitcoin hardware accessible to hobbyists.</h2>
+      <p class="card-summary">Hobbyists want to build their own bitcoin hardware at home across signing, mining, and full-node boxes. Each project has its own docs, parts list, and community. Getting from zero to a full home stack still means stitching across them. Curate the hobbyist on-ramp, package kits that skip the soldering, or build the canonical home-stack guide.</p>
+      <p class="card-full">Hobbyists want to build their own bitcoin hardware at home, across signing, mining, and full-node boxes. <a href="https://seedsigner.com/" target="_blank" rel="noopener">SeedSigner</a> turns a Raspberry Pi Zero and basic parts into an air-gapped signer for under $50. <a href="https://selfcustody.github.io/krux/" target="_blank" rel="noopener">Krux</a> flashes cheap development boards into touchscreen signers. <a href="https://bitaxe.org/" target="_blank" rel="noopener">Bitaxe</a> ships open-source designs for home solo-lottery miners. <a href="https://raspiblitz.org/" target="_blank" rel="noopener">RaspiBlitz</a> packages a Pi into a configurable Lightning node. Each has its own docs, parts list, and assembly path. Getting from zero to a signer + node + miner under one roof still means stitching across separate communities. Curate the hobbyist on-ramp, package kits that skip the soldering, or build the canonical "your home stack" guide.</p>
+      <div class="tag-footer"><span class="tag-oval build">build a new thing</span><span class="tag-oval understand">help them understand</span></div>
+    </div>
+
+    <div class="dare" data-tags="build" data-category="ai" data-audience="ai-agent-operator" id="ai-agent-wallet">
+      <h2>Give an AI agent a bitcoin wallet.</h2>
+      <p class="card-summary">Giving an AI agent a bitcoin wallet means handing over keys and trusting it to transact on your behalf. The shipped category is busy and custodial-by-default. Build the layer the ecosystem hasn't shipped: budget caps users understand, recoverable agent keys, multi-agent treasury, or self-custody alternatives.</p>
+      <p class="card-full">Giving an AI agent a bitcoin wallet means handing over keys (or scoped credentials) and trusting it to transact on your behalf. The shipped category is busy: <a href="https://lightning.engineering/" target="_blank" rel="noopener">Lightning Labs</a> ships AI-agent skills with scoped macaroons and L402-gated APIs; <a href="https://www.xverse.app/" target="_blank" rel="noopener">Xverse</a> ships an Agentic Wallet plus MCP server with budget controls; <a href="https://www.coinbase.com/" target="_blank" rel="noopener">Coinbase</a> and <a href="https://trustwallet.com/" target="_blank" rel="noopener">Trust Wallet</a> cover custodial agentic wallets; <a href="https://getalby.com/" target="_blank" rel="noopener">Alby</a> ships an MCP server for Lightning. The thin layer that's open: budget caps users actually understand, recoverable agent keys, multi-agent treasury, and self-custodial alternatives to the custodial-by-default pattern.</p>
+      <div class="tag-footer"><span class="tag-oval build">build a new thing</span></div>
+    </div>
+
+    <div class="dare" data-tags="build" data-category="ai" data-audience="gamer-game-designer,ai-agent-operator" id="ai-agents-game">
+      <h2>Build a game where AI agents compete with real money.</h2>
+      <p class="card-summary">Not a crypto game. A classic game with a real bitcoin economy, played entirely by AI agents, watched by humans. Think board games with actual stakes.</p>
+      <p class="card-full">Not a crypto game. A classic game with a real bitcoin economy, played entirely by AI agents, watched by humans. Think board games with actual stakes.</p>
+      <div class="tag-footer"><span class="tag-oval build">build a new thing</span></div>
+    </div>
+
+    <div class="dare" data-tags="understand" data-category="visibility" data-audience="builder" id="learn-bitcoin-tech">
+      <h2>Give aspiring bitcoin developers an end-to-end learning path from first code to fluent builder.</h2>
+      <p class="card-summary">Aspiring bitcoin developers stitch together their learning across browser puzzles, reference explainers, script IDEs, Lightning testbeds, and cohort programs. Each option covers a meaningful slice. The sequencing across them is on the learner. Build the cohesive, hands-on dev path from first script to fluent builder.</p>
+      <p class="card-full">Aspiring bitcoin developers stitch together their learning: <a href="https://savingsatoshi.com/" target="_blank" rel="noopener">Saving Satoshi</a> for browser coding puzzles, <a href="https://bitcoindevs.xyz/decoding" target="_blank" rel="noopener">Decoding Bitcoin</a> for bitcoin internals, <a href="https://learnmeabitcoin.com/" target="_blank" rel="noopener">Learn Me A Bitcoin</a> for deep reference explainers, <a href="https://ide.bitauth.com/" target="_blank" rel="noopener">BitAuth IDE</a> and <a href="https://ide.scriptwiz.app/" target="_blank" rel="noopener">Script Wiz</a> for script debugging, <a href="https://mutinynet.com" target="_blank" rel="noopener">Mutinynet</a> for Lightning experimentation, <a href="https://learning.chaincode.com/" target="_blank" rel="noopener">Chaincode Labs</a> and <a href="https://base58.info/" target="_blank" rel="noopener">Base58</a> for deep cohorts. Each covers a meaningful slice. The sequencing across them is on the learner. Build the cohesive, hands-on dev path from first script to fluent builder and contributor.</p>
+      <div class="tag-footer"><span class="tag-oval understand">help them understand</span></div>
+    </div>
+
+    <a href="https://forms.gle/dYP25U4DFwiKc9Gn7" target="_blank" rel="noopener" class="dare dare-empty">
+      <h2>Your ideas here.</h2>
+    </a>
+  </div>
+
+  <section class="resources">
+    <div class="res-header">// HERE, TAKE THIS WITH YOU</div>
+    <div class="res-list">
+      <span>Join the <a href="https://discord.gg/K7aQ5PErht">Bitcoin Design Community</a></span>
+      <span>Tag <a href="https://x.com/bitcoin_design">Bitcoin Design</a> as you build</span>
+      <span>Check out these <a href="https://bitcoin.design/projects">bitcoin design initiatives</a></span>
+      <span>Use this to <a href="https://skills.sh/aassoiants/product-framing/product-framing">frame your product problems</a></span>
+    </div>
+  </section>
+
+  <div class="community-credits">
+    with ideas and support from <a href="https://bitcoin.design/">bitcoin design community</a> &amp; <a href="https://bitcoindevs.xyz/">bitcoin dev project</a>
+  </div>
+
+  <footer>
+    <div class="row">
+      <span>curated by <a href="https://artassoiants.com">art assoiants</a></span>
+      <span><a href="https://github.com/aassoiants/bitcoin-product-ideas">open source on github</a></span>
+      <span>last updated 2026.04.23</span>
+    </div>
+  </footer>
+</main>
+
+<div class="modal-overlay" id="modal-overlay">
+  <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modal-title" tabindex="-1">
+    <button class="modal-close" id="modal-close" aria-label="Close idea">×</button>
+    <h2 id="modal-title"></h2>
+    <p id="modal-body"></p>
+    <div class="modal-footer">
+      <div id="modal-tag"></div>
+      <button class="modal-copy" id="modal-copy">copy link</button>
+    </div>
+    <div class="products-block" id="modal-products"></div>
+  </div>
+</div>
+
+<a href="https://forms.gle/dYP25U4DFwiKc9Gn7" target="_blank" rel="noopener" class="add-idea-float">$ submit --idea</a>
+
+<script>
+  // Past-product attempts per idea, extracted from docs/job-landscape.md.
+  window.ideaProducts = {
+      "advanced-custody": [
+          {
+              "name": "descriptor-encrypt",
+              "year": "2025",
+              "hack": "bitcoin-2025-official",
+              "status": "unknown",
+              "mech": "wallet authors encrypt a descriptor so only the keyholders required by its spending policy can recover it",
+              "deeply_analyzed": false
+          },
+          {
+              "name": "Munstr",
+              "year": "2023",
+              "hack": "mit-bitcoin-2023",
+              "status": "unknown",
+              "mech": "MuSig2 multisig coordination over Nostr, producing an on-chain tx indistinguishable from single-sig",
+              "deeply_analyzed": false
+          },
+          {
+              "name": "Glacier Wallet",
+              "year": "2025",
+              "hack": "lightning-plus-plus-berlin-2025",
+              "status": "unknown",
+              "mech": "lock bitcoin until a future block height; auto-generates the unlock PSBT when the timelock expires",
+              "deeply_analyzed": false
+          },
+          {
+              "name": "munt",
+              "year": "2024",
+              "hack": "bitcoinpp-ecash-2024",
+              "status": "unknown",
+              "mech": "Cashu token backup/restore across devices",
+              "deeply_analyzed": false
+          },
+          {
+              "name": "Bitcoin Core 2.0",
+              "year": "2020",
+              "hack": "mit-bitcoin-2020",
+              "status": "unknown",
+              "mech": "Bitcoin Core wallet fork with YubiKey/hardware-wallet-first UI",
+              "deeply_analyzed": false
+          },
+          {
+              "name": "Cete (Self Sovereign Family)",
+              "year": "2022",
+              "hack": "mit-bitcoin-2022",
+              "status": "unknown",
+              "mech": "bitcoin wallet app designed for families with members in all life stages",
+              "deeply_analyzed": false
+          }
+      ],
+      "ai-agent-wallet": [],
+      "ai-agents-game": [],
+      "bet-settlement": [
+          {
+              "name": "Bitcoin DLC, Side₿et, Discord DLC",
+              "year": "2018+",
+              "hack": "dormant",
+              "status": "unknown",
+              "mech": "DLC-based bet contracts",
+              "deeply_analyzed": false
+          },
+          {
+              "name": "OPIDoki",
+              "year": "2015",
+              "hack": "dead",
+              "status": "unknown",
+              "mech": "pre-DLC oracle-for-bets prototype",
+              "deeply_analyzed": false
+          }
+      ],
+      "bitcoin-as-game-rail": [
+          {
+              "name": "Bitcoin Pong",
+              "year": "2012",
+              "hack": "dead",
+              "status": "unknown",
+              "mech": "multiplayer pong with per-match bitcoin stakes",
+              "deeply_analyzed": false
+          },
+          {
+              "name": "Bitcoin Mages",
+              "year": "2012",
+              "hack": "dead",
+              "status": "unknown",
+              "mech": "strategy game with bitcoin stakes",
+              "deeply_analyzed": false
+          },
+          {
+              "name": "SuperMarioBits",
+              "year": "2015",
+              "hack": "dormant",
+              "status": "unknown",
+              "mech": "Super Mario with bitcoin per-level payments",
+              "deeply_analyzed": false
+          },
+          {
+              "name": "Space Shooter, BitDoom, Lightning Roulette, Autonomous-Rekt",
+              "year": "2024-2025",
+              "hack": "",
+              "status": "unknown",
+              "mech": "",
+              "deeply_analyzed": false
+          }
+      ],
+      "bitcoin-as-product-enabler": [],
+      "bitcoin-features-in-wallets": [],
+      "cash-bitcoin-kiosk": [
+          {
+              "name": "LightningATM",
+              "year": "2020-2021",
+              "hack": "fulmo-2020-may",
+              "status": "alive",
+              "mech": "DIY Lightning-cash kiosk by 21isenough; explicit hobbyist scope per creator; last release v0.3.1 May 2023",
+              "deeply_analyzed": true
+          },
+          {
+              "name": "Lightning ATMs",
+              "year": "2019",
+              "hack": "lightning-hack-day-hk-2019",
+              "status": "unknown",
+              "mech": "Integrate Eclair with General Bytes ATMs for Lightning top-up (Felix)",
+              "deeply_analyzed": false
+          },
+          {
+              "name": "Lightning Network enabled Vending Machine",
+              "year": "2019",
+              "hack": "bitcoin-games-2019",
+              "status": "unknown",
+              "mech": "Vue.js vending machine accepting Bitcoin Lightning payments via OpenNode API (Lambert family)",
+              "deeply_analyzed": false
+          }
+      ],
+      "collect-bitcoin-sentiment": [],
+      "contributor-autopay": [
+          {
+              "name": "Bitcoin-PAL",
+              "year": "2023",
+              "hack": "ai4all-2023",
+              "status": "unknown",
+              "mech": "docs contributors auto-paid sats to Lightning Address on merged contributions via GitHub Actions; dormant since July 2023",
+              "deeply_analyzed": false
+          },
+          {
+              "name": "Lightning Bounties",
+              "year": "2024",
+              "hack": "mit-bitcoin-2024",
+              "status": "unknown",
+              "mech": "pays open-source developers in BTC for merged GitHub contributions (PR-merge bounty platform)",
+              "deeply_analyzed": false
+          },
+          {
+              "name": "OpenAutoPay",
+              "year": "2025",
+              "hack": "bitcoinpp-pool-2025",
+              "status": "unknown",
+              "mech": "AI workforce payments using Lightning, L402, Nostr",
+              "deeply_analyzed": false
+          },
+          {
+              "name": "Pathos / Agora",
+              "year": "2026",
+              "hack": "hrf-ai-hack-2026",
+              "status": "unknown",
+              "mech": "Nostr + Lightning + Bluetooth-mesh activist platform with bitcoin bounties for dissidents (primary fit: offline-bitcoin; secondary: auto-pay)",
+              "deeply_analyzed": false
+          }
+      ],
+      "cost-of-spending": [],
+      "cross-border-remittance": [
+          {
+              "name": "NostrPIX",
+              "year": "2025",
+              "hack": "bitcoinpp-beach-2025",
+              "status": "alive",
+              "mech": "Pix-to-Lightning bridge for Brazilian remittance via NWC",
+              "deeply_analyzed": false
+          },
+          {
+              "name": "AgriMint",
+              "year": "2022",
+              "hack": "lol-1-2022",
+              "status": "unknown",
+              "mech": "Self-sovereign micro-banking app for African agricultural cooperatives",
+              "deeply_analyzed": false
+          },
+          {
+              "name": "Swapido",
+              "year": "2025",
+              "hack": "nwc-hackathon-2025",
+              "status": "alive",
+              "mech": "Non-custodial Lightning-to-peso off-ramp for Mexico via SPEI",
+              "deeply_analyzed": false
+          },
+          {
+              "name": "PISTO.NET",
+              "year": "2021",
+              "hack": "bitcoin-bankathon-2021",
+              "status": "dead",
+              "mech": "Open banking payment system for digital gift cards and bitcoin remittances",
+              "deeply_analyzed": false
+          },
+          {
+              "name": "Lightning Remit",
+              "year": "2024",
+              "hack": "bitcoin-games-2024",
+              "status": "unknown",
+              "mech": "Native iOS app for cross-border remittances on Lightning",
+              "deeply_analyzed": false
+          },
+          {
+              "name": "Beam: Cross-border Remittance Services",
+              "year": "2024",
+              "hack": "bitcoin-games-2024",
+              "status": "unknown",
+              "mech": "Instant remittances with efficient node management",
+              "deeply_analyzed": false
+          },
+          {
+              "name": "Remitflex",
+              "year": "2024",
+              "hack": "mit-bitcoin-2024",
+              "status": "unknown",
+              "mech": "Seamless remittances with bill payment options",
+              "deeply_analyzed": false
+          },
+          {
+              "name": "Rebittance",
+              "year": "2015",
+              "hack": "coinbase-bithack-v2-2015",
+              "status": "unknown",
+              "mech": "Pre-Lightning remittance aggregator (3rd Place)",
+              "deeply_analyzed": false
+          },
+          {
+              "name": "Xendit",
+              "year": "2014",
+              "hack": "bay-bithack-2014",
+              "status": "unknown",
+              "mech": "Pre-Lightning bitcoin-as-cross-border-rail; company pivoted to fiat post-2015 (still alive as a fiat fintech)",
+              "deeply_analyzed": false
+          }
+      ],
+      "cross-crypto-swap": [
+          {
+              "name": "Coinswap",
+              "year": "2014",
+              "hack": "dead",
+              "status": "unknown",
+              "mech": "peer-to-peer swap using bitcoin multisig escrow, predates atomic-swap HTLC proposals (2017+)",
+              "deeply_analyzed": false
+          }
+      ],
+      "diy-bitcoin-hardware": [
+          {
+              "name": "Bowser",
+              "year": "2020",
+              "hack": "fulmo-2020-jun",
+              "status": "wound-down",
+              "mech": "M5Stack ESP32 DIY signing device by arcbtc; codebase absorbed into LNbits hardware-wallet repo (archived 2022)",
+              "deeply_analyzed": false
+          },
+          {
+              "name": "Bitaxe authentication",
+              "year": "2025",
+              "hack": "bitcoinpp-pool-2025",
+              "status": "unknown",
+              "mech": "addon that prevents unauthorized pool pointing on shared home networks",
+              "deeply_analyzed": false
+          },
+          {
+              "name": "MuSig2 Support for Satochip",
+              "year": "2025",
+              "hack": "bitcoin-2025-official",
+              "status": "unknown",
+              "mech": "open-source hardware wallet multisig extension",
+              "deeply_analyzed": false
+          }
+      ],
+      "experiment-with-bitcoin-code": [
+          {
+              "name": "Polar",
+              "year": "2019",
+              "hack": "alive",
+              "status": "unknown",
+              "mech": "one-click Lightning regtest network",
+              "deeply_analyzed": false
+          },
+          {
+              "name": "BitScript",
+              "year": "2017",
+              "hack": "wound-down",
+              "status": "unknown",
+              "mech": "bitcoin script execution and debugging environment",
+              "deeply_analyzed": false
+          },
+          {
+              "name": "Simplicity Playground",
+              "year": "2025",
+              "hack": "dormant",
+              "status": "unknown",
+              "mech": "Simplicity language playground",
+              "deeply_analyzed": false
+          },
+          {
+              "name": "TANOS",
+              "year": "2025",
+              "hack": "dormant",
+              "status": "unknown",
+              "mech": "L2 test environment",
+              "deeply_analyzed": false
+          },
+          {
+              "name": "MareNostrum",
+              "year": "2025",
+              "hack": "dormant",
+              "status": "unknown",
+              "mech": "test environment for L2 work",
+              "deeply_analyzed": false
+          },
+          {
+              "name": "Warnet",
+              "year": "",
+              "hack": "alive",
+              "status": "unknown",
+              "mech": "Bitcoin Core network simulation at scale via Kubernetes",
+              "deeply_analyzed": false
+          }
+      ],
+      "gen-z-bitcoin": [],
+      "learn-bitcoin-tech": [
+          {
+              "name": "Saving Satoshi",
+              "year": "2022",
+              "hack": "lol-1-2022",
+              "status": "alive",
+              "mech": "Game-based educational tool for would-be bitcoin developers; browser coding puzzles teaching bitcoin protocol; deep-scrape pending (shape-load-bearing anchor for this job)",
+              "deeply_analyzed": false
+          }
+      ],
+      "learn-by-doing": [
+          {
+              "name": "Bitcoin Academy",
+              "year": "2018",
+              "hack": "mit-bitcoin-2018",
+              "status": "unknown",
+              "mech": "Hands-on Bitcoin lessons; Best Bitcoin Hack; the pass-3 original anchor for the newcomer-literacy cluster",
+              "deeply_analyzed": true
+          },
+          {
+              "name": "Bitcoin-PAL",
+              "year": "2023",
+              "hack": "ai4all-2023",
+              "status": "unknown",
+              "mech": "Chat with LLM trained on curated bitcoin library (primary fit is `contributor-autopay`; secondary fit here as a guided-learning interface)",
+              "deeply_analyzed": true
+          },
+          {
+              "name": "ChatBTC",
+              "year": "2024",
+              "hack": "satshack-2-2024",
+              "status": "unknown",
+              "mech": "Chat with OpenAI assistant, pay sats per 5-message bundle",
+              "deeply_analyzed": false
+          },
+          {
+              "name": "BitWise",
+              "year": "2025",
+              "hack": "bitcoin-2025-official",
+              "status": "unknown",
+              "mech": "Learn blockchain interactively with quizzes and gamified challenges",
+              "deeply_analyzed": false
+          },
+          {
+              "name": "BitBitMami",
+              "year": "2025",
+              "hack": "bitcoin-2025-official",
+              "status": "unknown",
+              "mech": "Bitcoin app to support local economies; learn-as-you-grow flow",
+              "deeply_analyzed": false
+          },
+          {
+              "name": "TheOrdinaryBitcoinBlog",
+              "year": "2025",
+              "hack": "bitcoin-2025-official",
+              "status": "unknown",
+              "mech": "Bitcoin education with interactive quizzes",
+              "deeply_analyzed": false
+          },
+          {
+              "name": "BitLearn",
+              "year": "2025",
+              "hack": "bitcoinpp-sovereignty-2025",
+              "status": "unknown",
+              "mech": "",
+              "deeply_analyzed": false
+          },
+          {
+              "name": "Block Chain Quest",
+              "year": "2025",
+              "hack": "bitcoin-2025-official",
+              "status": "unknown",
+              "mech": "Educational pixel art game mining bitcoin and learning blockchain",
+              "deeply_analyzed": false
+          },
+          {
+              "name": "ResponsiBit",
+              "year": "2019",
+              "hack": "bitcoin-games-2019",
+              "status": "unknown",
+              "mech": "Responsibility chart LApp for children to learn about crypto while earning",
+              "deeply_analyzed": false
+          }
+      ],
+      "lightning-channel-autopilot": [
+          {
+              "name": "Lightning Network Autopilot",
+              "year": "2019+",
+              "hack": "",
+              "status": "unknown",
+              "mech": "autopilot for channel decisions",
+              "deeply_analyzed": false
+          }
+      ],
+      "lightning-on-the-web": [
+          {
+              "name": "Bitcoin Connect",
+              "year": "2023",
+              "hack": "lol-2-2023",
+              "status": "alive",
+              "mech": "One-button Lightning wallet connector for any webapp via NWC; v3.12.2 shipped Feb 2026",
+              "deeply_analyzed": false
+          },
+          {
+              "name": "LNbits",
+              "year": "2020",
+              "hack": "fulmo-2020-may",
+              "status": "alive",
+              "mech": "Self-hostable Lightning accounts server with LNURL-pay and Lightning Address extensions; v1.0.0 in 2025",
+              "deeply_analyzed": false
+          },
+          {
+              "name": "Lightning Browser Extension",
+              "year": "2020-2021",
+              "hack": "fulmo-2020-dec",
+              "status": "alive",
+              "mech": "Browser extension enabling Lightning payments across multiple node implementations; maintained by Alby",
+              "deeply_analyzed": false
+          },
+          {
+              "name": "Moneysocket / Costanza",
+              "year": "2020-2021",
+              "hack": "fulmo-2020-dec",
+              "status": "dormant",
+              "mech": "Browser Lightning wallet speaking custom Moneysocket protocol so other apps can drive it without custodying funds",
+              "deeply_analyzed": false
+          },
+          {
+              "name": "Lightning Welder",
+              "year": "2024",
+              "hack": "bitcoinpp-ecash-2024",
+              "status": "unknown",
+              "mech": "Browser bridge for BOLT-11 wallets to pay BOLT-12 offers",
+              "deeply_analyzed": false
+          },
+          {
+              "name": "Fedimint-Web",
+              "year": "2024",
+              "hack": "bitcoinpp-ecash-2024",
+              "status": "unknown",
+              "mech": "Browser Lightning/Nostr extension using Fedimint web SDK",
+              "deeply_analyzed": false
+          }
+      ],
+      "local-bookkeeping": [],
+      "monetize-per-use": [
+          {
+              "name": "BitWall",
+              "year": "2013",
+              "hack": "dead",
+              "status": "unknown",
+              "mech": "paywalled article",
+              "deeply_analyzed": false
+          },
+          {
+              "name": "Bittunes",
+              "year": "2013",
+              "hack": "dead",
+              "status": "unknown",
+              "mech": "P2P music royalties",
+              "deeply_analyzed": false
+          },
+          {
+              "name": "Payable Links",
+              "year": "2019",
+              "hack": "dormant",
+              "status": "unknown",
+              "mech": "per-link content",
+              "deeply_analyzed": false
+          },
+          {
+              "name": "Super-Sat",
+              "year": "2024",
+              "hack": "dormant",
+              "status": "unknown",
+              "mech": "creator monetization",
+              "deeply_analyzed": false
+          },
+          {
+              "name": "Knowledge Vault",
+              "year": "2026",
+              "hack": "dormant",
+              "status": "unknown",
+              "mech": "per-piece content",
+              "deeply_analyzed": false
+          },
+          {
+              "name": "PhotoBolt",
+              "year": "",
+              "hack": "dormant",
+              "status": "unknown",
+              "mech": "paid AI photo editing",
+              "deeply_analyzed": false
+          },
+          {
+              "name": "Satosh-E",
+              "year": "",
+              "hack": "dormant",
+              "status": "unknown",
+              "mech": "pay-per-image AI generation",
+              "deeply_analyzed": false
+          }
+      ],
+      "monetize-unsolicited-contact": [
+          {
+              "name": "Mailman",
+              "year": "2015",
+              "hack": "coinbase-bithack-v2-2015",
+              "status": "dead",
+              "mech": "Bitcoin email paywall, 1st place + $10K + Boost VC accelerator",
+              "deeply_analyzed": false
+          },
+          {
+              "name": "Satmail",
+              "year": "2021",
+              "hack": "tabconf-2021",
+              "status": "unknown",
+              "mech": "Lightning-based spam prevention in Gmail",
+              "deeply_analyzed": false
+          }
+      ],
+      "network-observability": [
+          {
+              "name": "Forkscanner",
+              "year": "2023",
+              "hack": "mit-bitcoin-2023",
+              "status": "alive",
+              "mech": "Real-time Bitcoin network monitoring and fork/stale-block notifications",
+              "deeply_analyzed": true
+          },
+          {
+              "name": "OP_RETURN.space",
+              "year": "2025",
+              "hack": "bitcoinpp-pool-2025",
+              "status": "alive",
+              "mech": "Explorer simulating an unlimited OP_RETURN chain",
+              "deeply_analyzed": true
+          },
+          {
+              "name": "memepool.cool",
+              "year": "2025",
+              "hack": "bitcoinpp-pool-2025",
+              "status": "unknown",
+              "mech": "Live browser-based Bitcoin mempool explorer",
+              "deeply_analyzed": true
+          },
+          {
+              "name": "Sats Guardian",
+              "year": "2025",
+              "hack": "bitcoinpp-beach-2025",
+              "status": "alive",
+              "mech": "On-chain watchtower detecting theft in real-time with recovery transactions",
+              "deeply_analyzed": true
+          },
+          {
+              "name": "Ordverse",
+              "year": "2023",
+              "hack": "bitcoin-olympics-2023",
+              "status": "unknown",
+              "mech": "Datahub & Search Engine for Recursive Ordinals",
+              "deeply_analyzed": true
+          },
+          {
+              "name": "Double-spend monitor",
+              "year": "2012",
+              "hack": "berlin-bitcoin-2012",
+              "status": "dead",
+              "mech": "Real-time mempool conflict detection",
+              "deeply_analyzed": true
+          }
+      ],
+      "node-activity-viewer": [],
+      "node-operator-mempool-policy": [
+          {
+              "name": "garbageman",
+              "year": "2024+",
+              "hack": "",
+              "status": "unknown",
+              "mech": "configurable mempool filtering",
+              "deeply_analyzed": false
+          }
+      ],
+      "offline-bitcoin": [
+          {
+              "name": "Offline transactions for BitcoinJ/Android",
+              "year": "2012",
+              "hack": "",
+              "status": "unknown",
+              "mech": "Bluetooth + MAC-in-QR for offline bitcoin payments",
+              "deeply_analyzed": false
+          },
+          {
+              "name": "TxtCoin",
+              "year": "2014",
+              "hack": "dead",
+              "status": "unknown",
+              "mech": "SMS-based wallet for feature phones",
+              "deeply_analyzed": false
+          },
+          {
+              "name": "Mesh Lightning",
+              "year": "2025",
+              "hack": "",
+              "status": "unknown",
+              "mech": "Lightning over Bluetooth mesh",
+              "deeply_analyzed": false
+          },
+          {
+              "name": "Pathos / Agora",
+              "year": "2026",
+              "hack": "dormant",
+              "status": "unknown",
+              "mech": "bitcoin messaging over Bluetooth mesh during internet cuts",
+              "deeply_analyzed": false
+          }
+      ],
+      "p2p-marketplace": [
+          {
+              "name": "Seller.Trade",
+              "year": "2015",
+              "hack": "dead",
+              "status": "unknown",
+              "mech": "BitTorrent DHT + BitPay marketplace",
+              "deeply_analyzed": false
+          },
+          {
+              "name": "Shopstr",
+              "year": "2024",
+              "hack": "bitcoin-games-2024",
+              "status": "unknown",
+              "mech": "Nostr-based marketplace with Lightning + Cashu, multi-seller",
+              "deeply_analyzed": false
+          },
+          {
+              "name": "Kartapio",
+              "year": "2025",
+              "hack": "bitcoinpp-beach-2025",
+              "status": "unknown",
+              "mech": "Nostr marketplace connecting local businesses",
+              "deeply_analyzed": false
+          },
+          {
+              "name": "Bitcoin Free Market",
+              "year": "2025",
+              "hack": "bitcoinpp-beach-2025",
+              "status": "unknown",
+              "mech": "Nostr-powered marketplace",
+              "deeply_analyzed": false
+          }
+      ],
+      "proof-of-reserves": [
+          {
+              "name": "zkpoor",
+              "year": "2025",
+              "hack": "bitcoinpp-scaling-2025",
+              "status": "unknown",
+              "mech": "Prove bitcoin holdings via STARK proofs without revealing UTXOs; 3rd Overall + Best Privacy Hack at bitcoin++ Scaling 2025",
+              "deeply_analyzed": true
+          }
+      ],
+      "quantum-explainer": [],
+      "small-merchant-acceptance": [
+          {
+              "name": "Live-calculator",
+              "year": "2012",
+              "hack": "dead",
+              "status": "unknown",
+              "mech": "live bitcoin price display for restaurants",
+              "deeply_analyzed": false
+          },
+          {
+              "name": "acceptbit.com",
+              "year": "2012",
+              "hack": "dead",
+              "status": "unknown",
+              "mech": "Electrum master-public-key trick for merchant servers without spend capability",
+              "deeply_analyzed": false
+          }
+      ],
+      "ui-component-library": [],
+      "usable-bitcoin-privacy": [
+          {
+              "name": "Sweepstack",
+              "year": "2025",
+              "hack": "bitcoinpp-privacy-2025",
+              "status": "unknown",
+              "mech": "Get paid to consolidate your UTXOs; Honorable Mentions",
+              "deeply_analyzed": true
+          },
+          {
+              "name": "Coinfy",
+              "year": "2025",
+              "hack": "bitcoinpp-beach-2025",
+              "status": "unknown",
+              "mech": "Bitcoin wallet preventing costly UTXO mixing mistakes",
+              "deeply_analyzed": false
+          },
+          {
+              "name": "Boggles",
+              "year": "2026",
+              "hack": "mit-bitcoin-2026",
+              "status": "unknown",
+              "mech": "Bitcoin transaction privacy scorer identifying weaknesses",
+              "deeply_analyzed": false
+          },
+          {
+              "name": "Floresta mobile app",
+              "year": "2024",
+              "hack": "satshack-2-2024",
+              "status": "unknown",
+              "mech": "Mobile wallet + node with privacy focus (Davidson Souza / Tree hunters)",
+              "deeply_analyzed": false
+          },
+          {
+              "name": "Nolooking",
+              "year": "2022",
+              "hack": "lol-1-2022",
+              "status": "dormant",
+              "mech": "Lightning-channel-opening BIP78 Payjoin: receiver opens one or more channels in the same on-chain tx as an incoming Payjoin payment, breaking input-ownership heuristics",
+              "deeply_analyzed": true
+          }
+      ],
+      "wallet-less-recipient": [
+          {
+              "name": "BitcoinsWithFriends",
+              "year": "2013",
+              "hack": "san-jose-bitcoin-2013",
+              "status": "unknown",
+              "mech": "Facebook social-graph onboarding via lending small amounts of bitcoin to friends",
+              "deeply_analyzed": false
+          },
+          {
+              "name": "Aircoin",
+              "year": "2014",
+              "hack": "coinbase-bithack-2014",
+              "status": "unknown",
+              "mech": "mobile proximity transfer to a nearby person; 2nd Place, $5,000",
+              "deeply_analyzed": false
+          },
+          {
+              "name": "El Dorado",
+              "year": "2016",
+              "hack": "bay-bithack-2016",
+              "status": "unknown",
+              "mech": "merchant-pushed QR bitcoin loyalty rewards; customer doesn't need to know their wallet address",
+              "deeply_analyzed": false
+          },
+          {
+              "name": "Lightsats",
+              "year": "2022",
+              "hack": "lol-1-2022",
+              "status": "unknown",
+              "mech": "pre-coiner self-onramp via LNURL-withdraw tips and gifts",
+              "deeply_analyzed": false
+          }
+      ],
+      "wallet-library-primitives": [
+          {
+              "name": "BitcoinJ Multisig",
+              "year": "2012",
+              "hack": "gitorious-defunct",
+              "status": "unknown",
+              "mech": "multisig support for the Java bitcoin library",
+              "deeply_analyzed": false
+          },
+          {
+              "name": "Bitcoin-autosave",
+              "year": "2012",
+              "hack": "",
+              "status": "unknown",
+              "mech": "background wallet-state autosave for BitcoinJ",
+              "deeply_analyzed": false
+          }
+      ]
+  };
+</script>
+
+<script>
+  const board = document.querySelector('.board');
+  const dares = [...board.querySelectorAll('.dare:not(.dare-empty)')];
+  const empty = board.querySelector('.dare-empty');
+
+  // Shuffle on load
+  for (let i = dares.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    board.appendChild(dares[j]);
+    dares[j] = dares[i];
+  }
+  if (empty) board.appendChild(empty);
+
+  // Inject product-count indicator on its own row above each card's tag-footer
+  // and make cards keyboard-activatable
+  document.querySelectorAll('.dare:not(.dare-empty)').forEach(card => {
+    if (!card.hasAttribute('tabindex')) {
+      card.tabIndex = 0;
+      card.setAttribute('role', 'button');
+      card.setAttribute('aria-label', 'Open idea: ' + (card.querySelector('h2')?.textContent || card.id));
+    }
+    if (!card.querySelector('.card-count')) {
+      const count = (window.ideaProducts && window.ideaProducts[card.id] || []).length;
+      const footer = card.querySelector('.tag-footer');
+      if (footer) {
+        const label = document.createElement('div');
+        label.className = 'card-count' + (count === 0 ? ' zero' : '');
+        label.innerHTML = '<span class="num">' + count + '</span> <span class="word">' + (count === 1 ? 'product' : 'products') + ' in archive</span>';
+        card.insertBefore(label, footer);
+      }
+    }
+  });
+
+  // ── FILTER STATE + URL SYNC ──
+  const filterState = { tag: new Set(), cat: new Set(), aud: new Set() };
+  const popByDim = { tag: 'pop-archetype', cat: 'pop-category', aud: 'pop-audience' };
+  const dimByPop = { 'pop-archetype': 'tag', 'pop-category': 'cat', 'pop-audience': 'aud' };
+  const dataAttrByDim = { tag: 'tags', cat: 'category', aud: 'audience' };
+
+  function readFiltersFromURL() {
+    const params = new URLSearchParams(window.location.search);
+    for (const dim of Object.keys(filterState)) {
+      const v = params.get(dim);
+      filterState[dim] = new Set(v ? v.split(',').filter(Boolean) : []);
+    }
+  }
+  function writeFiltersToURL() {
+    const params = new URLSearchParams(window.location.search);
+    for (const [dim, set] of Object.entries(filterState)) {
+      if (set.size > 0) params.set(dim, [...set].join(','));
+      else params.delete(dim);
+    }
+    const q = params.toString();
+    history.replaceState(null, '', window.location.pathname + (q ? '?' + q : '') + window.location.hash);
+  }
+  function matchesFilter(card) {
+    for (const [dim, set] of Object.entries(filterState)) {
+      if (set.size === 0) continue;
+      const attr = dataAttrByDim[dim];
+      const values = (card.dataset[attr] || '').split(',');
+      if (!values.some(v => set.has(v))) return false;
+    }
+    return true;
+  }
+  function hasActiveFilters() {
+    return Object.values(filterState).some(s => s.size > 0);
+  }
+  function clearAllFilters() {
+    for (const dim of Object.keys(filterState)) filterState[dim].clear();
+    writeFiltersToURL();
+    renderActiveOpts();
+    renderButtonCounts();
+    applyFilters();
+    updateOptionCounts();
+  }
+  function applyFilters() {
+    let visible = 0;
+    board.querySelectorAll('.dare:not(.dare-empty)').forEach(card => {
+      if (matchesFilter(card)) { card.classList.remove('hidden'); visible++; }
+      else card.classList.add('hidden');
+    });
+    const resultEl = document.getElementById('fb-result');
+    resultEl.classList.toggle('empty', visible === 0 && hasActiveFilters());
+    if (!hasActiveFilters()) {
+      resultEl.innerHTML = '';
+      return;
+    }
+    const chipsHtml = Object.entries(filterState).flatMap(([dim, set]) =>
+      [...set].map(v => {
+        const opt = document.querySelector(`#${popByDim[dim]} .fb-opt[data-value="${v}"]`);
+        const label = opt?.firstElementChild?.textContent.trim() || v;
+        return `<span class="fb-chip"><span>${label}</span><button class="fb-chip-x" type="button" data-dim="${dim}" data-value="${v}" aria-label="Remove ${label} filter">×</button></span>`;
+      })
+    ).join('');
+    const countHtml = visible === 0
+      ? `<span><b>0</b> ideas match these filters</span>`
+      : `<span><b>${visible}</b> of 35 ideas</span>`;
+    resultEl.innerHTML = `${countHtml}<span class="fb-chips">${chipsHtml}</span><button class="fb-clear" type="button">clear all</button>`;
+    resultEl.querySelector('.fb-clear').addEventListener('click', clearAllFilters);
+    resultEl.querySelectorAll('.fb-chip-x').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const { dim, value } = btn.dataset;
+        filterState[dim].delete(value);
+        const opt = document.querySelector(`#${popByDim[dim]} .fb-opt[data-value="${value}"]`);
+        if (opt) {
+          opt.classList.remove('active');
+          opt.setAttribute('aria-checked', 'false');
+        }
+        writeFiltersToURL();
+        renderButtonCounts();
+        applyFilters();
+        updateOptionCounts();
+      });
+    });
+  }
+  function renderButtonCounts() {
+    for (const [dim, popId] of Object.entries(popByDim)) {
+      const btn = document.querySelector(`.fb-btn[data-pop="${popId}"]`);
+      const n = filterState[dim].size;
+      const existing = btn.querySelector('.count');
+      if (n > 0) {
+        if (existing) existing.textContent = n;
+        else {
+          const s = document.createElement('span');
+          s.className = 'count';
+          s.textContent = n;
+          btn.insertBefore(s, btn.querySelector('.arrow'));
+        }
+      } else if (existing) {
+        existing.remove();
+      }
+    }
+  }
+  function renderActiveOpts() {
+    for (const [dim, popId] of Object.entries(popByDim)) {
+      document.querySelectorAll(`#${popId} .fb-opt`).forEach(opt => {
+        opt.classList.toggle('active', filterState[dim].has(opt.dataset.value));
+      });
+    }
+  }
+  function cardsMatchingExcept(exceptDim) {
+    const cards = Array.from(board.querySelectorAll('.dare:not(.dare-empty)'));
+    return cards.filter(card => {
+      for (const [dim, set] of Object.entries(filterState)) {
+        if (dim === exceptDim) continue;
+        if (set.size === 0) continue;
+        const attr = dataAttrByDim[dim];
+        const values = (card.dataset[attr] || '').split(',');
+        if (!values.some(v => set.has(v))) return false;
+      }
+      return true;
+    });
+  }
+  function updateOptionCounts() {
+    for (const [dim, popId] of Object.entries(popByDim)) {
+      const eligibleCards = cardsMatchingExcept(dim);
+      const attr = dataAttrByDim[dim];
+      document.querySelectorAll(`#${popId} .fb-opt`).forEach(opt => {
+        const value = opt.dataset.value;
+        const count = eligibleCards.filter(card => {
+          const values = (card.dataset[attr] || '').split(',');
+          return values.includes(value);
+        }).length;
+        const isActive = filterState[dim].has(value);
+        let countSpan = opt.querySelector('.count');
+        if (!countSpan) {
+          countSpan = document.createElement('span');
+          countSpan.className = 'count';
+          opt.appendChild(countSpan);
+        }
+        countSpan.textContent = count;
+        opt.classList.toggle('hidden', count === 0 && !isActive);
+      });
+    }
+  }
+
+  function syncFilterButtonAria() {
+    document.querySelectorAll('.fb-btn').forEach(b => {
+      b.setAttribute('aria-expanded', b.classList.contains('open') ? 'true' : 'false');
+    });
+  }
+
+  // Dropdown toggle
+  document.querySelectorAll('.fb-btn').forEach(btn => {
+    btn.addEventListener('click', e => {
+      e.stopPropagation();
+      const popId = btn.dataset.pop;
+      const wasOpen = btn.classList.contains('open');
+      document.querySelectorAll('.fb-btn.open').forEach(b => b.classList.remove('open'));
+      document.querySelectorAll('.fb-pop.open').forEach(p => p.classList.remove('open'));
+      if (!wasOpen) {
+        btn.classList.add('open');
+        const pop = document.getElementById(popId);
+        pop.classList.remove('align-right');
+        pop.classList.add('open');
+        const r = pop.getBoundingClientRect();
+        if (r.right > window.innerWidth - 4) pop.classList.add('align-right');
+      }
+      syncFilterButtonAria();
+    });
+  });
+  document.addEventListener('click', () => {
+    document.querySelectorAll('.fb-btn.open').forEach(b => b.classList.remove('open'));
+    document.querySelectorAll('.fb-pop.open').forEach(p => p.classList.remove('open'));
+    syncFilterButtonAria();
+  });
+
+  // Make filter options keyboard-accessible as checkboxes
+  document.querySelectorAll('.fb-opt').forEach(opt => {
+    opt.setAttribute('role', 'checkbox');
+    opt.setAttribute('tabindex', '0');
+    opt.setAttribute('aria-checked', opt.classList.contains('active') ? 'true' : 'false');
+  });
+
+  function toggleOption(opt) {
+    const popId = opt.closest('.fb-pop').id;
+    const dim = dimByPop[popId];
+    const value = opt.dataset.value;
+    if (filterState[dim].has(value)) filterState[dim].delete(value);
+    else filterState[dim].add(value);
+    opt.classList.toggle('active');
+    opt.setAttribute('aria-checked', opt.classList.contains('active') ? 'true' : 'false');
+    writeFiltersToURL();
+    renderButtonCounts();
+    applyFilters();
+    updateOptionCounts();
+  }
+
+  document.querySelectorAll('.fb-opt').forEach(opt => {
+    opt.addEventListener('click', e => {
+      e.stopPropagation();
+      toggleOption(opt);
+    });
+    opt.addEventListener('keydown', e => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        e.stopPropagation();
+        toggleOption(opt);
+      }
+    });
+  });
+
+  readFiltersFromURL();
+  renderActiveOpts();
+  renderButtonCounts();
+  applyFilters();
+  updateOptionCounts();
+
+  // Modal
+  const overlay = document.getElementById('modal-overlay');
+  const modal = overlay.querySelector('.modal');
+  const modalTitle = document.getElementById('modal-title');
+  const modalBody = document.getElementById('modal-body');
+  const modalTag = document.getElementById('modal-tag');
+  const modalCopy = document.getElementById('modal-copy');
+  const modalClose = document.getElementById('modal-close');
+  const modalProducts = document.getElementById('modal-products');
+  let lastFocused = null;
+
+  function escapeHTML(s) {
+    return String(s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+  }
+
+  function renderProducts(slug) {
+    const list = (window.ideaProducts && window.ideaProducts[slug]) || [];
+    const header = '<div class="products-head"><span class="left">// hackathon ' + (list.length === 1 ? 'product' : 'products') + ' <span class="count-num">' + list.length + '</span></span><span class="caveat">from our archive</span></div>';
+    if (list.length === 0) {
+      modalProducts.innerHTML = header;
+      return;
+    }
+    const rows = list.map(p => {
+      const meta = p.hack ? '<span class="va-slug">' + escapeHTML(p.hack) + '</span>' : '';
+      const mech = p.mech ? '<span class="va-mech">' + escapeHTML(p.mech) + '</span>' : '';
+      return '<div class="va-row"><div class="va-main"><span class="va-name">' + escapeHTML(p.name) + '</span>' + meta + mech + '</div><span class="va-year">' + escapeHTML(p.year || '') + '</span></div>';
+    }).join('');
+    modalProducts.innerHTML = header + '<div class="va-table">' + rows + '</div>';
+  }
+
+  function openModal(card) {
+    lastFocused = document.activeElement;
+    modalTitle.textContent = card.querySelector('h2').textContent;
+    modalBody.innerHTML = (card.querySelector('p.card-full') || card.querySelector('p')).innerHTML;
+    const tagFooter = card.querySelector('.tag-footer');
+    modalTag.innerHTML = tagFooter ? tagFooter.innerHTML : '';
+    renderProducts(card.id);
+    history.replaceState(null, '', '#idea/' + card.id);
+    overlay.classList.add('open');
+    // Defer focus so layout settles before moving the scroll
+    setTimeout(() => modal.focus(), 0);
+  }
+
+  function closeModal() {
+    overlay.classList.remove('open');
+    history.replaceState(null, '', window.location.pathname);
+    if (lastFocused && typeof lastFocused.focus === 'function') {
+      lastFocused.focus();
+      lastFocused = null;
+    }
+  }
+
+  modalClose.addEventListener('click', closeModal);
+
+  // Focus trap: keep Tab cycling within the modal while it's open
+  modal.addEventListener('keydown', (e) => {
+    if (e.key !== 'Tab') return;
+    const focusables = modal.querySelectorAll('a[href], button:not([disabled]), [tabindex]:not([tabindex="-1"])');
+    if (focusables.length === 0) return;
+    const first = focusables[0];
+    const last = focusables[focusables.length - 1];
+    if (e.shiftKey && document.activeElement === first) {
+      e.preventDefault();
+      last.focus();
+    } else if (!e.shiftKey && document.activeElement === last) {
+      e.preventDefault();
+      first.focus();
+    }
+  });
+
+  board.querySelectorAll('.dare:not(.dare-empty)').forEach(card => {
+    card.addEventListener('click', (e) => {
+      if (e.target.closest('a')) return;
+      openModal(card);
+    });
+    card.addEventListener('keydown', (e) => {
+      if ((e.key === 'Enter' || e.key === ' ') && !e.target.closest('a')) {
+        e.preventDefault();
+        openModal(card);
+      }
+    });
+  });
+
+  overlay.addEventListener('click', (e) => { if (e.target === overlay) closeModal(); });
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && overlay.classList.contains('open')) closeModal();
+  });
+
+  modalCopy.addEventListener('click', () => {
+    var hash = window.location.hash;
+    var slug = hash.replace('#idea/', '');
+    var url = window.location.origin + '/idea/' + slug;
+    navigator.clipboard.writeText(url).then(() => {
+      modalCopy.textContent = 'copied!';
+      setTimeout(() => { modalCopy.textContent = 'copy link'; }, 1500);
+    });
+  });
+
+  if (window.location.hash) {
+    var match = window.location.hash.match(/^#idea\/([a-z0-9-]+)$/);
+    if (match) {
+      var card = document.getElementById(match[1]);
+      if (card && card.classList.contains('dare')) {
+        openModal(card);
+      }
+    }
+  }
+</script>
+
+</body>
+</html>
