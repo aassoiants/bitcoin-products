@@ -1,11 +1,11 @@
 # Products
 
-The bitcoin product archive in two layers:
+The bitcoin product archive in two layers, no overlap:
 
-- **`0-masterlist.md`** — 977-row bulk index of every product across every hackathon we've cataloged. Each row has `Name`, `Team`, `Tagline`, `Scope`, `Hackathons`, `Link`, `Deep`.
-- **`{slug}.md`** — 76 deep entries with the full schema. The slug is the filename (no in-file field for it).
+- **`{slug}.md`** — 76 deep entries with the full schema. The slug is the filename (no in-file field for it). These render as the rich modal cards on [bitcoinproducts.xyz/products.html](https://bitcoinproducts.xyz/products.html).
+- **`0-masterlist.md`** — ~912-row breadth catalog of every other product across every hackathon we've cataloged (deep entries not duplicated here). Each row has `Name`, `Team`, `Tagline`, `Scope`, `Hackathons`, `Link`. The bitcoin-scope subset (~492 rows) renders as "indexed only" stub cards on the live site. The rest (shitcoin, unclear, excluded, withdrawn) is the public audit trail of what we've evaluated.
 
-These render as cards on [bitcoinproducts.xyz/products.html](https://bitcoinproducts.xyz/products.html). Deep entries get the rich modal with all fields. Breadth rows from the masterlist render as "indexed only" stub cards.
+**If you know one of the breadth-row products well**, pick a row from `0-masterlist.md` and PR a deep entry as a sibling `{slug}.md` file. See the deep-entry schema below.
 
 ## Per-product deep schema
 
@@ -42,7 +42,6 @@ These render as cards on [bitcoinproducts.xyz/products.html](https://bitcoinprod
 | `Scope` | One of `bitcoin`, `shitcoin`, `unclear`, `excluded`, `withdrawn`. See vocabulary below. |
 | `Hackathons` | Comma-separated event slug(s). Resolves to [`../sources/{slug}.md`](../sources/). |
 | `Link` | Canonical product URL. |
-| `Deep` | `✓` if a per-product `.md` exists alongside the masterlist row, `-` if breadth-only, `excluded` if scope-failed. |
 
 ## Scope vocabulary
 

@@ -29,6 +29,8 @@ Three reasons.
 
 **Hackathons compound.** The same idea (pay someone who doesn't have a wallet, route around remittance fees, monetize a single article instead of a subscription) recurs across years and events. Eight separate teams take eight separate runs at the same problem across thirteen years. That pattern is invisible when you only look at one product at a time. We make it visible.
 
+Hackathons are just a logical starting point. 
+
 ---
 
 ## What is a bitcoin product?
@@ -54,7 +56,7 @@ The data layer behind the live site. Three folders.
 35 per-idea canonical files. One `.md` per idea. Each file has these fields:
 
 - **slug**: URL-safe identifier matching the filename (`{slug}.md`).
-- **statement**: the one-sentence headline of the idea.
+- **idea**: the one-sentence headline of the idea.
 - **card_body**: three short sentences (situation, gap, invitation) shown on the live card.
 - **body**: longer body shown when the idea is opened, names real-world products and the specific gap.
 - **category**: one of `reach`, `sovereignty`, `visibility`, `commerce`, `builder-tools`, `ai`.
@@ -63,7 +65,7 @@ The data layer behind the live site. Three folders.
 - **first_added**: ISO date the idea entered the archive.
 - **last_reviewed**: ISO date of the most recent body update.
 
-Plus a `### Past products` section listing every hackathon product that's tackled this idea: name, year, hackathon slug, status, mechanism.
+Plus a `### Past products` section listing every hackathon product that's tackled this idea: product name (links by slug), year, hackathon slug, status, and a short note on how the product tried to solve the idea.
 
 See [`data/ideas/wallet-less-recipient.md`](data/ideas/wallet-less-recipient.md) for an example.
 
@@ -83,7 +85,7 @@ See [`data/ideas/wallet-less-recipient.md`](data/ideas/wallet-less-recipient.md)
 - **language**: primary programming language(s).
 - **source_code**: canonical repo URL, or `none` if not surfaced.
 - **link**: canonical product URL (live site, demo, or repo).
-- **origin_listing**: gallery URL where the submission first appeared (Devpost, DoraHacks, BOLT.FUN, etc.).
+- **origin_listing**: gallery URL where the submission first appeared (Devpost and the like).
 - **description**: one-sentence "what it does" line.
 - **status**: one of `alive`, `dormant`, `dead`, `wound-down`, `source-not-published`.
 - **status_confidence**: `low`, `medium`, or `high`.
@@ -104,7 +106,7 @@ See [`data/products/nolooking.md`](data/products/nolooking.md) for an example.
 - **dates**: month/day range if known (`July 13-15, 2012`).
 - **location**: city or `online`.
 - **organizer**: running entity or person, plus any co-organizers.
-- **type**: `bitcoin`, `bitcoin-layer`, `mixed`, or `shitcoin` (events that branded around non-bitcoin chains).
+- **type**: primary product focus of the hackathon:`bitcoin`, `bitcoin-layer`, `mixed`, or `shitcoin` (events that branded around non-bitcoin chains).
 - **sponsors**: list of sponsoring orgs.
 - **product_count**: number of submissions to the hackathon.
 - **count_confidence**: `confirmed` (verified against the gallery), `estimated` (organizer or press estimate), or `none`.
@@ -127,14 +129,11 @@ The fastest path is a pull request that edits a single `.md` file.
 
 - **Make corrections to the data.** Wrong attribution, year, status, link? Edit the relevant `data/ideas/{slug}.md`, `data/products/{slug}.md`, or `data/sources/{slug}.md` and open a PR. Schema above is the contract.
 - **Suggest a user-added product** (non-hackathon, non-buildathon). Open an issue with the per-product fields filled in. We're tracking commercial bitcoin products separately and may merge them in once the surface lands.
-- **Promote a "lightly analyzed" product to deep.** Pick one of the 492 indexed cards on /products.html, write the full schema, and PR a new `data/products/{slug}.md`. Best for someone who knows the product well.
-- **Submit a hackathon we missed.** Particularly bitcoin++ themed editions (Pool, Privacy, Scaling, Beach, Sovereignty, Ecash, AI-Turbo), regional events, university-run buildathons. Open an issue or PR a new `data/sources/{slug}.md`.
+- **Pick a breadth-only product and deep-analyze it.** Browse the breadth catalog at [`data/products/0-masterlist.md`](data/products/0-masterlist.md). Each row is a hackathon submission we've cataloged but not yet analyzed in depth. If you know one well enough to fill in the full schema (status, source code, mechanism, awards, last activity, etc.), PR a new `data/products/{slug}.md`. The `unclear`-scope rows in particular need community eyes to confirm whether the underlying repo actually uses bitcoin.
+- **Submit a hackathon we missed.** Regional events, university-run buildathons. Open an issue or PR a new `data/sources/{slug}.md`. Please provide the link of products worked on if there is one available. 
 - **Add a way to slice or analyze the data.** Open an issue describing the cut you want: by builder recurrence, by spec maturity, by alive-rate per year, by anything. We'll consider adding it as a filter facet or a new surface.
 - **Tell us how this informed a decision.** Did you pick a project, kill a project, change scope, or learn something about the space using the archive? [Open an issue](https://github.com/aassoiants/bitcoin-product-ideas/issues/new) and tell us. The patterns of how it gets used shape what we ship next.
-- **Translate.** Idea bodies, product descriptions, scope rules. Open an issue if you want to start a translation effort and we'll set up the filename convention together.
 - **Anything else.** If you see a use we haven't named, open an issue describing the work. The contribution surface is intentionally open-ended.
-
-We don't ship a CONTRIBUTING.md yet; the schemas above are the contract.
 
 ---
 
