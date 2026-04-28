@@ -65,11 +65,25 @@ These are the values currently in use across the 76 deep entries. New submission
 
 ### `categories`
 
-Borrowed from [Bitcoin Optech](https://bitcoinops.org)'s 20 topic categories with 8 layer-2 break-outs added.
+Built on top of [Bitcoin Optech](https://bitcoinops.org/en/topic-categories/)'s 20 topic categories, plus extensions for things Optech's protocol-engineering vocabulary doesn't cover at our granularity.
 
-`ark`, `backup-recovery`, `cashu`, `consensus`, `contract-protocols`, `dev-tools`, `fedimint`, `games`, `invoicing`, `lightning`, `liquid`, `liquidity`, `liquidity-management`, `merchant-tools`, `node-infra`, `payments`, `privacy`, `scripts-addresses`, `security`, `security-problems`, `tx-relay`, `wallet-collab`, `wallets`
+**From Optech, currently in use (13)**:
 
-Known cleanup needed: `liquidity` and `liquidity-management` are likely duplicates pending consolidation.
+`backup-recovery`, `consensus` (Consensus Enforcement), `contract-protocols`, `dev-tools` (Developer Tools), `invoicing`, `lightning` (Lightning Network), `liquidity-management`, `privacy` (Privacy Enhancements), `scripts-addresses`, `security` (Security Enhancements), `security-problems`, `tx-relay` (Transaction Relay Policy), `wallet-collab` (Wallet Collaboration Tools)
+
+**From Optech, available but not yet used (7)** (valid when a product fits):
+
+Bandwidth Reduction, Fee Management, Lightweight Client Support, Mining, P2P Network Protocol, Privacy Problems, Soft Forks
+
+**Our L2 break-outs (in use: 4 + 1 catch-all)**:
+
+`ark`, `cashu`, `fedimint`, `liquid`, `node-infra`. Reserved for future use: `statechain`, `rgb`, `taproot-assets`.
+
+**Hackathon-product extensions (4)**:
+
+`games`, `merchant-tools`, `payments`, `wallets`. Optech focuses on protocol engineering; these cover product shapes that submissions consistently fall into.
+
+Known cleanup needed: `liquidity` is in use as a one-off and should be consolidated into `liquidity-management`.
 
 ### `specs`
 
