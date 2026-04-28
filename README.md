@@ -123,6 +123,13 @@ See [`data/sources/berlin-bitcoin-2012.md`](data/sources/berlin-bitcoin-2012.md)
 
 ---
 
+## Coming next
+
+- **Sources page** at [bitcoinproducts.xyz/sources.html](https://bitcoinproducts.xyz/sources.html) — a filterable, searchable, sortable list of all 118 hackathons. Sort by year, organizer, type, count confidence, products indexed, products deeply analyzed. Built from [`data/sources/`](data/sources/).
+- **Dashboard** at [bitcoinproducts.xyz/dashboard.html](https://bitcoinproducts.xyz/dashboard.html) — arc view from altitude. How the space has shifted year by year, which problems got sustained attention, builder-recurrence patterns. For strategists and veterans reading the field from above.
+
+---
+
 ## Contribute
 
 The fastest path is a pull request that edits a single `.md` file.
