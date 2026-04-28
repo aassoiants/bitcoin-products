@@ -55,6 +55,30 @@ Full criteria + edge cases at [`../../docs/product-definition.md`](../../docs/pr
 | `excluded` | Evaluated and ruled out (scope failure). The pitch claimed bitcoin but the code didn't deliver, or the work doesn't qualify as a discrete artifact. |
 | `withdrawn` | Team rescinded their submission and no external evidence remains. Kept in the masterlist for the internal record but not rendered in public output. |
 
+## Vocabulary
+
+These are the values currently in use across the 76 deep entries. New submissions can introduce new values when a needed term isn't in the list, but please flag the addition in the PR description so the vocabulary stays curated.
+
+### `product_type`
+
+`app`, `bot`, `dashboard`, `demo`, `developer-tool`, `explorer`, `firmware`, `game`, `library`, `marketplace`, `mobile-app`, `node-implementation`, `plugin`, `protocol-specification`, `service`, `tool`, `wallet`, `web-app`, `website`
+
+### `categories`
+
+Borrowed from [Bitcoin Optech](https://bitcoinops.org)'s 20 topic categories with 8 layer-2 break-outs added.
+
+`ark`, `backup-recovery`, `cashu`, `consensus`, `contract-protocols`, `dev-tools`, `fedimint`, `games`, `invoicing`, `lightning`, `liquid`, `liquidity`, `liquidity-management`, `merchant-tools`, `node-infra`, `payments`, `privacy`, `scripts-addresses`, `security`, `security-problems`, `tx-relay`, `wallet-collab`, `wallets`
+
+Known cleanup needed: `liquidity` and `liquidity-management` are likely duplicates pending consolidation.
+
+### `specs`
+
+Bitcoin protocol specs (BIPs), Lightning specs (BOLTs), Cashu specs (NUTs), and named primitives. The `adj:` prefix marks bitcoin-adjacent specs (Nostr family) that are load-bearing alongside bitcoin in a given product.
+
+`adaptor-sigs`, `adj:nostr`, `BIP-11`, `BIP-21`, `bip32`, `bip39`, `bip78`, `bluetooth`, `bolt11`, `bolt12`, `descriptors`, `deterministic-keys`, `discreet-log`, `dlc`, `electrum`, `lightning-address`, `lnurl`, `miniscript`, `multisig`, `musig2`, `nwc`, `op_return`, `p2wsh`, `payjoin`, `psbt`, `rbf`, `schnorr`, `simplicity`, `taproot`, `webln`
+
+Known cleanup needed: case inconsistency (`BIP-11` and `BIP-21` versus `bip32`, `bip78`). Pending normalization.
+
 ## Connects to
 
 - **[`../sources/{slug}.md`](../sources/)**: `hackathon_slug` field on deep entries and `Hackathons` column on masterlist rows reference per-hackathon canonical files.
