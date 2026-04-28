@@ -17,7 +17,7 @@ Sources: Devpost, DoraHacks, BOLT.FUN, Gitcoin, GitHub, Fulmo wiki, Taikai, Even
 
 | Name | Team | Tagline | Scope | Hackathons | Link |
 |---|---|---|---|---|---|
-| [] | Bill Zheng, Liu Yang | (No description) | unclear | mit-bitcoin-2022 | https://devpost.com/software/-6okxxe |
+| (no name found) | Bill Zheng, Liu Yang | (No description) | unclear | mit-bitcoin-2022 | https://devpost.com/software/-6okxxe |
 | 0rdinals | Sandra Cai | Runestone mechanism for Bitcoin NFTs marketplace | bitcoin | mit-bitcoin-2024 | https://devpost.com/software/0rdinals |
 | 0xbabb1e | Gilad Penn, Talal Toukan, Eric Chen | Solidity bytecode obfuscator (Grand Prize) | shitcoin | mit-bitcoin-2018 | https://devpost.com/software/0xbabb1e-4gxqtr |
 | 2019-Strike-SHARE | Luigi L | Knowledge sharing on node setup and atomic swaps | excluded | strike-2019 | https://devpost.com/software/2019-strike-share |
