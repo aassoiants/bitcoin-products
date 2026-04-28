@@ -8,7 +8,7 @@
 | dates | June 16–19, 2022 |
 | location |  |
 | organizer | BOLT.FUN |
-| type | bitcoin layer |
+| type | bitcoin |
 | sponsors |  |
 | product_count |  |
 | count_confidence | estimated |

@@ -3,7 +3,7 @@
 | Field | Value |
 |---|---|
 | slug | gen-z-bitcoin |
-| statement | Build something in bitcoin that Gen Z would actually use. |
+| idea | Build something in bitcoin that Gen Z would actually use. |
 | card_body | Nothing in bitcoin is built for how Gen Z uses the internet. The interfaces, the language, the onboarding. What if you had to earn their attention first? |
 | body | Nothing in bitcoin is built for how Gen Z uses the internet. The interfaces, the language, the onboarding. What if you had to earn their attention first? For inspiration, check [skibidi.cash](https://skibidi.cash/). |
 | category | reach |

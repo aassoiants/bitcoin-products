@@ -8,7 +8,7 @@
 | dates | March 12-13, 2022 |
 | location |  |
 | organizer | PlebLab / Bitcoin Commons |
-| type | bitcoin layer |
+| type | bitcoin |
 | sponsors |  |
 | product_count | 6 |
 | count_confidence | estimated |

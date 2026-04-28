@@ -8,7 +8,7 @@
 | dates |  |
 | location |  |
 | organizer | Banco de El Salvador |
-| type | bitcoin layer |
+| type | bitcoin |
 | sponsors |  |
 | product_count |  |
 | count_confidence | estimated |

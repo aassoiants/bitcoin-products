@@ -3,7 +3,7 @@
 | Field | Value |
 |---|---|
 | slug | learn-by-doing |
-| statement | Give newcomers an end-to-end bitcoin learning flow from first click to confident self-custody. |
+| idea | Give newcomers an end-to-end bitcoin learning flow from first click to confident self-custody. |
 | card_body | Bitcoin newcomers learn by piecing tools together. Each option covers a meaningful slice. None is designed to hand off to the next. Build the cohesive, hands-on learning arc from beginner to mastery. |
 | body | Bitcoin newcomers learn by piecing tools together: [Anders Brownworth](https://andersbrownworth.com/blockchain) for concepts, [Learn Me A Bitcoin](https://learnmeabitcoin.com/) for mechanics, [Mi Primer Bitcoin](https://myfirstbitcoin.io/) in 25+ languages, [Plan B Network](https://planb.network/), [Saylor Academy](https://learn.saylor.org/), and [BTC Sessions](https://www.youtube.com/@BTCSessions) for video walkthroughs. Each covers a meaningful slice. None is designed to hand off to the next. Mobile-native interactive is thin, and non-English-first options outside Spanish and Portuguese are limited. Build the cohesive, hands-on learning arc from beginner to mastery. |
 | category | visibility |

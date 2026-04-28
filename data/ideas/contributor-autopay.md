@@ -3,7 +3,7 @@
 | Field | Value |
 |---|---|
 | slug | contributor-autopay |
-| statement | Auto-pay contributors for a specific unit of work. |
+| idea | Auto-pay contributors for a specific unit of work. |
 | card_body | Maintainers want to pay open-source contributors in sats when their work ships. Today's tools auto-pay in fiat, distribute across dependency trees, or keep the on-merge flow private. Port the mechanics to bitcoin, open-source the pattern, or ship a GitHub Action that pays sats on merge. |
 | body | Maintainers want to pay open-source contributors in sats when their work ships, but no end-to-end tool does this today. Hackathon builders have attempted this across four angles (AI training payments, PR-merge bounties, L402 workforce payments, activist bounties) without a dominant solution. [Algora](https://algora.io) auto-pays on PR merge via Stripe, fiat-only. [thanks.dev](https://thanks.dev) distributes periodically across dependency trees, not per unit of work. [PlanB Network](https://planb.network) runs a Lightning-on-merge flow internally but hasn't open-sourced it. Port Algora's mechanics to bitcoin, open-source a pattern similar to PlanB, or ship a GitHub Action that pays sats on merge. |
 | category | commerce |

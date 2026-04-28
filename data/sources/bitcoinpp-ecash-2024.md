@@ -8,7 +8,7 @@
 | dates |  |
 | location |  |
 | organizer | Base58 / bitcoin++ |
-| type | bitcoin layer |
+| type | bitcoin |
 | sponsors |  |
 | product_count | 15 |
 | count_confidence | estimated |

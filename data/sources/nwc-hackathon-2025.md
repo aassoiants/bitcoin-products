@@ -8,7 +8,7 @@
 | dates |  |
 | location |  |
 | organizer | Alby / Flash / Primal / BTC Curaçao |
-| type | bitcoin layer |
+| type | bitcoin |
 | sponsors |  |
 | product_count | 15 |
 | count_confidence | estimated |

@@ -3,7 +3,7 @@
 | Field | Value |
 |---|---|
 | slug | usable-bitcoin-privacy |
-| statement | Ship bitcoin privacy tooling that a non-technical user can actually use. |
+| idea | Ship bitcoin privacy tooling that a non-technical user can actually use. |
 | card_body | Privacy-conscious bitcoin holders want CoinJoin mixes, coin control, and transaction-graph breaks without opening a terminal. Today's tools are desktop-first or need a local node, and the coordinator layer thinned after 2024 enforcement. Make privacy mobile-first, ship an easy onboarding coordinator, or integrate privacy into the wallets people already use. |
 | body | Privacy-conscious bitcoin holders want CoinJoin mixes, coin control, and transaction-graph breaks without opening a terminal. [Wasabi](https://wasabiwallet.io/) runs WabiSabi CoinJoin rounds via GUI. [Sparrow](https://sparrowwallet.com/) ships coin control and PayJoin via desktop GUI. [JoinMarket-Qt](https://github.com/JoinMarket-Org/joinmarket-clientserver) needs a local Bitcoin Core node and manual configuration. Samourai Whirlpool shut down after a DOJ indictment in 2024; Wasabi's coordinator dissolved the same year, thinning the CoinJoin coordinator layer. Make privacy mobile-first, ship an easy-onboarding CoinJoin coordinator, or integrate privacy into the wallets people already use. |
 | category | sovereignty |

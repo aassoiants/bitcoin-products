@@ -8,7 +8,7 @@
 | dates | March 18-19, 2023 |
 | location |  |
 | organizer | PlebLab / Bitcoin Commons |
-| type | bitcoin layer |
+| type | bitcoin |
 | sponsors |  |
 | product_count | 11 |
 | count_confidence | estimated |

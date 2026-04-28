@@ -8,7 +8,7 @@
 | dates |  |
 | location |  |
 | organizer | RADAR ION |
-| type | bitcoin layer |
+| type | bitcoin |
 | sponsors |  |
 | product_count | 34 |
 | count_confidence | confirmed |

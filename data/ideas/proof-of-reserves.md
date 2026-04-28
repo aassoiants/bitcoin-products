@@ -3,7 +3,7 @@
 | Field | Value |
 |---|---|
 | slug | proof-of-reserves |
-| statement | Prove bitcoin reserves without revealing UTXOs, ledgers, or per-customer balances. |
+| idea | Prove bitcoin reserves without revealing UTXOs, ledgers, or per-customer balances. |
 | card_body | Bitcoin custodians must prove adequate reserves without revealing UTXOs, ledgers, or per-customer balances. Today's Merkle and zero-knowledge proofs rely on custodian infrastructure or auditor trust. Ship continuous proofs, customer-verifiable inclusion without audit trust, or make the proof on chain-verifiable. |
 | body | Bitcoin custodians must prove they hold adequate bitcoin reserves without revealing UTXOs, ledgers, or per-customer balances. [Kraken](https://www.kraken.com/proof-of-reserves) publishes Merkle-tree inclusion proofs with liability verification via an independent accountancy; [Binance](https://www.binance.com/en/proof-of-reserves) ships Merkle-tree proofs but omits liabilities. [OKX](https://www.okx.com/proof-of-reserves) uses zero-knowledge proofs to hide UTXOs and amounts while showing assets exceed liabilities; [Backpack](https://learn.backpack.exchange/articles/proof-of-reserves-at-backpack) publishes daily zero-knowledge proofs anyone can verify. All rely on custodian-controlled infrastructure or auditor trust. Ship continuous proofs, customer-verifiable inclusion without audit trust, or make the proof on-chain-verifiable. |
 | category | sovereignty |

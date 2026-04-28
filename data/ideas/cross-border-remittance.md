@@ -3,7 +3,7 @@
 | Field | Value |
 |---|---|
 | slug | cross-border-remittance |
-| statement | Skip remittance fees when sending money across borders. |
+| idea | Skip remittance fees when sending money across borders. |
 | card_body | Remittance fees hit 4-8% on mobile-money corridors. Bitcoin rails can route around them, but the map is a patchwork. Pick an underserved corridor or turn a receive-side rail into a sender product. |
 | body | Remittance is a daily lifeline; the cost varies wildly by corridor. Wise drove USD and EUR sub-1%, but mobile-money corridors (M-Pesa, Pix, MTN MoMo) run 4-8%. Bitcoin and Lightning can route around the bank rails. [Strike](https://strike.me) sends US outbound; [Bitnob](https://bitnob.com) covers African receive; [Tando](https://tando.me) lands Lightning on M-Pesa; [Machankura](https://8333.mobi) brings Lightning to USSD phones. The map is a patchwork. Pick an underserved corridor (EU to Africa, Gulf to South Asia), widen an existing service, or turn a receive-side rail into a complete sender product. |
 | category | reach |

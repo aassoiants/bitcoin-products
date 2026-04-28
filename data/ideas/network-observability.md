@@ -3,7 +3,7 @@
 | Field | Value |
 |---|---|
 | slug | network-observability |
-| statement | See what's actually happening on the bitcoin network. |
+| idea | See what's actually happening on the bitcoin network. |
 | card_body | Analysts and node operators want real-time visibility into mempool, forks, fee dynamics, propagation, and double-spend conflicts. Each surface has a specialist tool. No unified observatory covers them together. Build it, cover an uncovered layer, or ship an open cross-tool feed. |
 | body | Analysts, researchers, and node operators want real-time visibility into bitcoin network activity across mempool, forks, fee dynamics, propagation, and double-spend conflicts. Each surface has a specialist tool: [mempool.space](https://mempool.space/) for mempool and fees, [forkmonitor.info](https://forkmonitor.info/) for consensus anomalies, [Bitnodes](https://bitnodes.io/) for node census. No unified observatory covers them together, and new layers keep appearing. Ship the unified bitcoin network observatory, cover an uncovered layer, or build the open cross-tool feed anyone can subscribe to. |
 | category | visibility |

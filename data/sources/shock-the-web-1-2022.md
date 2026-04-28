@@ -8,7 +8,7 @@
 | dates |  |
 | location |  |
 | organizer | BOLT.FUN |
-| type | bitcoin layer |
+| type | bitcoin |
 | sponsors |  |
 | product_count |  |
 | count_confidence | estimated |

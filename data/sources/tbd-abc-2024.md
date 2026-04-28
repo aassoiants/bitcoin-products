@@ -8,7 +8,7 @@
 | dates |  |
 | location |  |
 | organizer | TBD (Block, Inc.) / ABC |
-| type | bitcoin layer |
+| type | bitcoin |
 | sponsors |  |
 | product_count | 6 |
 | count_confidence | estimated |

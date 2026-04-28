@@ -8,7 +8,7 @@
 | dates |  |
 | location |  |
 | organizer | Nostrasia / BOLT.FUN |
-| type | bitcoin layer |
+| type | bitcoin |
 | sponsors |  |
 | product_count | 37 |
 | count_confidence | confirmed |

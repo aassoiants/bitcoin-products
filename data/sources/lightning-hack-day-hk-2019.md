@@ -8,7 +8,7 @@
 | dates |  |
 | location |  |
 | organizer | Bitwork (HK) |
-| type | bitcoin layer |
+| type | bitcoin |
 | sponsors |  |
 | product_count | 8 |
 | count_confidence | estimated |

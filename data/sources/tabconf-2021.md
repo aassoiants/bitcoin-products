@@ -8,7 +8,7 @@
 | dates |  |
 | location |  |
 | organizer | TABConf / Atlanta Bitcoin |
-| type | bitcoin layer |
+| type | bitcoin |
 | sponsors |  |
 | product_count | 33 |
 | count_confidence | estimated |

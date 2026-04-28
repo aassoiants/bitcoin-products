@@ -8,7 +8,7 @@
 | dates |  |
 | location |  |
 | organizer | Hack4Freedom / Btrust Builders |
-| type | bitcoin layer |
+| type | bitcoin |
 | sponsors |  |
 | product_count | 8 |
 | count_confidence | confirmed |

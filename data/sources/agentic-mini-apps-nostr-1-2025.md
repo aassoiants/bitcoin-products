@@ -8,7 +8,7 @@
 | dates |  |
 | location |  |
 | organizer | YakiHonne |
-| type | bitcoin layer |
+| type | bitcoin |
 | sponsors |  |
 | product_count | 47 |
 | count_confidence | confirmed |

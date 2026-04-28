@@ -8,7 +8,7 @@
 | dates |  |
 | location |  |
 | organizer | Btrust Builders (fmr. Qala) / ABC |
-| type | bitcoin layer |
+| type | bitcoin |
 | sponsors |  |
 | product_count | 38 |
 | count_confidence | confirmed |

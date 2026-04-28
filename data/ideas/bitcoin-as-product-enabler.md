@@ -3,7 +3,7 @@
 | Field | Value |
 |---|---|
 | slug | bitcoin-as-product-enabler |
-| statement | Use instant permissionless value transfer to unlock new product categories or improve existing ones. |
+| idea | Use instant permissionless value transfer to unlock new product categories or improve existing ones. |
 | card_body | Most apps that could use bitcoin don't know it yet. What new product experiences can you build that use instant permissionless value transfer as an enabler, not the main feature? |
 | body | Most apps that could use bitcoin don't know it yet. What new product experiences can you build that use instant permissionless value transfer as an enabler, not the main feature? |
 | category | reach |

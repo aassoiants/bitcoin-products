@@ -3,7 +3,7 @@
 | Field | Value |
 |---|---|
 | slug | lightning-on-the-web |
-| statement | Pay or accept Lightning on a webpage without installing anything. |
+| idea | Pay or accept Lightning on a webpage without installing anything. |
 | card_body | Visitors land on pages that ask for sats and bounce because connecting a wallet means installing an extension or copying connection strings. The primitives exist piece by piece. Pick the slice the ecosystem leaves open and ship the next layer. |
 | body | Visitors land on pages that ask for sats and bounce because connecting a wallet means installing an extension or copying connection strings. [Bitcoin Connect](https://github.com/getAlby/bitcoin-connect) ships the visitor-side connection for any NWC wallet, [BTCPay Server](https://btcpayserver.org) handles the merchant accept side, and [Lightning Address](https://lightningaddress.com/) turns username@domain into a paste-anywhere identifier. Pick the slice the ecosystem leaves open and ship the next layer of Lightning's web story. |
 | category | reach |

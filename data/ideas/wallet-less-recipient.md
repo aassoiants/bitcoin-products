@@ -3,7 +3,7 @@
 | Field | Value |
 |---|---|
 | slug | wallet-less-recipient |
-| statement | Pay someone who doesn't have a wallet yet. |
+| idea | Pay someone who doesn't have a wallet yet. |
 | card_body | Bitcoin users want to send sats to friends, family, or gig workers who haven't set up a wallet yet. Today's claim link flows are custodial, regional, or wound down. Widen the geography, make it non-custodial, or ship the next version. |
 | body | Bitcoin users want to send sats to friends, family, or gig workers who haven't set up a wallet yet. Hackathon builders have attempted this since 2013 (social-graph friend-loans, mobile proximity transfer, merchant-pushed loyalty rewards, LNURL claim pages) without a dominant solution. [River Link](https://river.com/river-link) generates a custodial claim link redeemable to any wallet (US-only). [Mutiny Wallet](https://mutinywallet.com) offered gift links with a temp web wallet but wound down in 2024. Cash App dropped $Cashtag bitcoin transfers in December 2024. Widen the geography, make it non-custodial, or ship the next version. |
 | category | reach |

@@ -3,7 +3,7 @@
 | Field | Value |
 |---|---|
 | slug | bet-settlement |
-| statement | Settle a real-world bet or condition on-chain without a house. |
+| idea | Settle a real-world bet or condition on-chain without a house. |
 | card_body | Friends settle bets on sports, elections, and weather every day. In bitcoin that means trusting a sportsbook with custody or rolling your own Discreet Log Contract setup. The bitcoin rails exist. Ship the consumer product. |
 | body | Friends settle bets on sports, elections, and weather every day. In bitcoin, that means trusting a sportsbook with custody or building your own DLC setup. [Thunderpick](https://thunderpick.io/) and its peers take custody. [Polymarket](https://polymarket.com/) proved non-custodial prediction markets work at scale, but on Polygon with USDC, not bitcoin. [DLC Markets](https://dlcmarkets.com/) and [Lava](https://lava.xyz/) ship Discreet Log Contracts for institutional derivatives and loans. [dlcdevkit](https://github.com/bennyhodl/dlcdevkit) is the dev toolkit. Atomic Finance shipped a consumer DLC app and sunset it in late 2025. [Son of Liberty](https://benschroth.com/blog/dlcdevkit-beyond/) wraps dlcdevkit into a friend-bet flow for Umbrel and Start9 nodes. The bitcoin rails exist. The consumer product doesn't. |
 | category | commerce |

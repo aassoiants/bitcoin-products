@@ -3,7 +3,7 @@
 | Field | Value |
 |---|---|
 | slug | diy-bitcoin-hardware |
-| statement | Make DIY bitcoin hardware accessible to hobbyists. |
+| idea | Make DIY bitcoin hardware accessible to hobbyists. |
 | card_body | Hobbyists want to build their own bitcoin hardware at home across signing, mining, and full-node boxes. Each project has its own docs, parts list, and community. Getting from zero to a full home stack still means stitching across them. Curate the hobbyist on-ramp, package kits that skip the soldering, or build the canonical home-stack guide. |
 | body | Hobbyists want to build their own bitcoin hardware at home, across signing, mining, and full-node boxes. [SeedSigner](https://seedsigner.com/) turns a Raspberry Pi Zero and basic parts into an air-gapped signer for under $50. [Krux](https://selfcustody.github.io/krux/) flashes cheap development boards into touchscreen signers. [Bitaxe](https://bitaxe.org/) ships open-source designs for home solo-lottery miners. [RaspiBlitz](https://raspiblitz.org/) packages a Pi into a configurable Lightning node. Each has its own docs, parts list, and assembly path. Getting from zero to a signer + node + miner under one roof still means stitching across separate communities. Curate the hobbyist on-ramp, package kits that skip the soldering, or build the canonical "your home stack" guide. |
 | category | builder-tools |

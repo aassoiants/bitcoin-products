@@ -8,7 +8,7 @@
 | dates |  |
 | location |  |
 | organizer | Fulmo |
-| type | bitcoin layer |
+| type | bitcoin |
 | sponsors |  |
 | product_count | 7 |
 | count_confidence | estimated |

@@ -3,7 +3,7 @@
 | Field | Value |
 |---|---|
 | slug | experiment-with-bitcoin-code |
-| statement | Build a way to experiment with bitcoin/L2 code or networks without touching mainnet. |
+| idea | Build a way to experiment with bitcoin/L2 code or networks without touching mainnet. |
 | card_body | Builders working on a new bitcoin or L2 protocol roll their own environment or wait for testnet. Lightning has a one-click regtest GUI. Cashu, Fedimint, Ark, and statechains don't. Ship the GUI for the layer the ecosystem hasn't covered. |
 | body | Polar gives Lightning developers a one-click regtest network. It covers Lightning's basic flows but not newer features like BOLT-12 or splicing. For Cashu, Fedimint, Ark, and statechains there are docker scripts and shell demos but no Polar-class GUI equivalent. At the L1 layer, BitScript helped with script execution but is wound down. Warnet handles network-scale experimentation for Bitcoin Core research. Most builders working on a new bitcoin/L2 protocol roll their own environment or wait for testnet. The shape exists. The GUI coverage doesn't. |
 | category | builder-tools |

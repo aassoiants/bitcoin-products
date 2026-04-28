@@ -3,7 +3,7 @@
 | Field | Value |
 |---|---|
 | slug | cash-bitcoin-kiosk |
-| statement | Swap cash and bitcoin at a kiosk that's cheap, private, and self-custodial. |
+| idea | Swap cash and bitcoin at a kiosk that's cheap, private, and self-custodial. |
 | card_body | Bitcoin ATMs charge 7-25% and require Know Your Customer identity checks. That leaves cash-preferring buyers without a cheap, private, self-custodial option. Shave the fee, drop the identity-check floor, or launch in an underserved geography. |
 | body | Public bitcoin ATMs let anyone (first-time buyers, privacy-conscious holders, cash-preferring travelers) swap between cash and bitcoin at 7-25% fees, with Know Your Customer (KYC) the norm. The landscape is country-bound: [Bitcoin Depot](https://bitcoindepot.com), [CoinFlip](https://coinflip.tech), [LibertyX](https://libertyx.com) (US); [Bitcoin Well](https://bitcoinwell.com) (Canada); [Athena](https://athenabitcoin.com) (LatAm); [SatoshiPoint](https://satoshipoint.io) (UK). [Byte Federal](https://www.bytefederal.com) pairs a self-custody wallet. None ship a sub-percent, non-KYC-for-small-buys, layer-2-first (Lightning, Liquid, Cashu, or Fedimint), self-custody-by-default, meetup-scale kiosk. [LightningATM](https://github.com/21isenough/LightningATM) is the DIY precedent. Launch in an underserved geography, shave the fee, drop the KYC floor, or package the hardware. |
 | category | reach |

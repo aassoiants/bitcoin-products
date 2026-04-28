@@ -3,7 +3,7 @@
 | Field | Value |
 |---|---|
 | slug | advanced-custody |
-| statement | Make advanced custody usable without being a cryptographer. |
+| idea | Make advanced custody usable without being a cryptographer. |
 | card_body | Advanced bitcoin custody uses multisig and timelocks to survive key loss. Today that means descriptor-fluent DIY tools, recurring white-glove subscriptions, or bundled hardware where a third party holds one of the keys. Build the version that's as easy as password managers, self-serve on recovery, and works with hardware people already own. |
 | body | Advanced custody uses multisig and miniscript timelocks to survive key loss while supporting inheritance. A DIY tier ships free ([Sparrow](https://sparrowwallet.com/), [Specter](https://specter.solutions/), [Liana](https://wizardsardine.com/liana/), [Nunchuk](https://nunchuk.io/), [Theya](https://theya.us/)) for users comfortable with descriptors and PSBTs. A white-glove tier charges recurring fees for expert setup and recovery ([Casa](https://casa.io/), [Unchained](https://unchained.com/), [Anchorwatch](https://anchorwatch.com/), [Onramp](https://onrampbitcoin.com/)). [Bitkey](https://bitkey.build/) bundles 3-key multisig into hardware with no subscription, but only with its own hardware and with Block holding a key. Build the version that's password-manager-easy, self-serve on recovery, and works with hardware wallets people already own. |
 | category | sovereignty |
