@@ -69,7 +69,9 @@ Built on top of [Bitcoin Optech](https://bitcoinops.org/en/topic-categories/)'s 
 
 **From Optech, currently in use (13)**:
 
-`backup-recovery`, `consensus` (Consensus Enforcement), `contract-protocols`, `dev-tools` (Developer Tools), `invoicing`, `lightning` (Lightning Network), `liquidity-management`, `privacy` (Privacy Enhancements), `scripts-addresses`, `security` (Security Enhancements), `security-problems`, `tx-relay` (Transaction Relay Policy), `wallet-collab` (Wallet Collaboration Tools)
+`backup-recovery`, `consensus` (Consensus Enforcement), `contract-protocols`, `dev-tools` (Developer Tools), `invoicing`, `lightning` (Lightning Network), `liquidity-management`, `privacy` (Privacy Enhancements), `scripts-addresses`, `security` (Security Enhancements), `security-problems`, `tx-relay` (Transaction Relay Policy), `wallet-collab` (Wallet Collaboration Tools).
+
+Slug convention: lowercased, hyphenated abbreviation of Optech's full label. The full label is shown in parens above when our slug differs.
 
 **From Optech, available but not yet used (7)** (valid when a product fits):
 
@@ -83,15 +85,14 @@ Bandwidth Reduction, Fee Management, Lightweight Client Support, Mining, P2P Net
 
 `games`, `merchant-tools`, `payments`, `wallets`. Optech focuses on protocol engineering; these cover product shapes that submissions consistently fall into.
 
-Known cleanup needed: `liquidity` is in use as a one-off and should be consolidated into `liquidity-management`.
 
 ### `specs`
 
 Bitcoin protocol specs (BIPs), Lightning specs (BOLTs), Cashu specs (NUTs), and named primitives. The `adj:` prefix marks bitcoin-adjacent specs (Nostr family) that are load-bearing alongside bitcoin in a given product.
 
-`adaptor-sigs`, `adj:nostr`, `BIP-11`, `BIP-21`, `bip32`, `bip39`, `bip78`, `bluetooth`, `bolt11`, `bolt12`, `descriptors`, `deterministic-keys`, `discreet-log`, `dlc`, `electrum`, `lightning-address`, `lnurl`, `miniscript`, `multisig`, `musig2`, `nwc`, `op_return`, `p2wsh`, `payjoin`, `psbt`, `rbf`, `schnorr`, `simplicity`, `taproot`, `webln`
+`adaptor-sigs`, `adj:nostr`, `bip11`, `bip21`, `bip32`, `bip39`, `bip78`, `bluetooth`, `bolt11`, `bolt12`, `descriptors`, `deterministic-keys`, `discreet-log`, `dlc`, `electrum`, `lightning-address`, `lnurl`, `miniscript`, `multisig`, `musig2`, `nwc`, `op_return`, `p2wsh`, `payjoin`, `psbt`, `rbf`, `schnorr`, `simplicity`, `taproot`, `webln`
 
-Known cleanup needed: case inconsistency (`BIP-11` and `BIP-21` versus `bip32`, `bip78`). Pending normalization.
+Slug convention: lowercase, no hyphen between protocol prefix and number (`bip32`, not `BIP-32`).
 
 ## Connects to
 

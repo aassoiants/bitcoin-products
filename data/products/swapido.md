@@ -11,7 +11,7 @@
 | team | Gustavo Flores Echaiz (founder/CEO) + Swapido team |
 | builders | Gustavo Flores Echaiz + Swapido team |
 | product_type | service, app |
-| categories | lightning, liquidity |
+| categories | lightning, liquidity-management |
 | specs | bolt11, nwc |
 | language | (not surfaced; site frontend likely TypeScript) |
 | source_code | none, closed source non-custodial service |

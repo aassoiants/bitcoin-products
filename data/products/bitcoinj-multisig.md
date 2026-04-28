@@ -13,7 +13,7 @@
 | product_type | library |
 | categories | scripts-addresses |
 | categories_no_match | Multisig and scripting work in the pre-category-system era. |
-| specs | multisig, BIP-11 |
+| specs | multisig, bip11 |
 | language | Java |
 | source_code | not surfaced (originally on gitorious.org/bitcoin-hackathon per primary source; gitorious defunct; Wayback Machine fetch blocked this pass) |
 | description | Lets a bitcoin application built on BitcoinJ construct and broadcast multisig transactions, enabling m-of-n spending conditions that were not yet supported in the Java library at the time. |

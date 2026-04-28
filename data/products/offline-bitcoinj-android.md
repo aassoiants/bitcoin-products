@@ -12,7 +12,7 @@
 | builders | Andreas Schildbach, grazcoin |
 | product_type | mobile-app |
 | categories | wallets |
-| specs | BIP-21, bluetooth |
+| specs | bip21, bluetooth |
 | language | Java |
 | source_code | https://github.com/livne/Bitcoin-Wallet-for-Android/tree/hackathon |
 | description | Lets a bitcoin payer send a transaction to a nearby merchant when neither party has an active internet connection, so payments work in low-connectivity environments. |
