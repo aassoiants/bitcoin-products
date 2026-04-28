@@ -2,8 +2,8 @@
 
 The bitcoin product archive in two layers, no overlap:
 
-- **`{slug}.md`** — 76 deep entries with the full schema. The slug is the filename (no in-file field for it). These render as the rich modal cards on [bitcoinproducts.xyz/products.html](https://bitcoinproducts.xyz/products.html).
-- **`0-masterlist.md`** — ~912-row breadth catalog of every other product across every hackathon we've cataloged (deep entries not duplicated here). Each row has `Name`, `Team`, `Tagline`, `Scope`, `Hackathons`, `Link`. The bitcoin-scope subset (~492 rows) renders as "indexed only" stub cards on the live site. The rest (shitcoin, unclear, excluded, withdrawn) is the public audit trail of what we've evaluated.
+- **`{slug}.md`**: 76 deep entries with the full schema. The slug is the filename (no in-file field for it). These render as the rich modal cards on [bitcoinproducts.xyz/products.html](https://bitcoinproducts.xyz/products.html).
+- **`0-masterlist.md`**: ~912-row breadth catalog of every other product across every hackathon we've cataloged (deep entries not duplicated here). Each row has `Name`, `Team`, `Tagline`, `Scope`, `Hackathons`, `Link`. The bitcoin-scope subset (~492 rows) renders as "indexed only" stub cards on the live site. The rest (shitcoin, unclear, excluded, withdrawn) is the public audit trail of what we've evaluated.
 
 **If you know one of the breadth-row products well**, pick a row from `0-masterlist.md` and PR a deep entry as a sibling `{slug}.md` file. See the deep-entry schema below.
 
@@ -57,6 +57,6 @@ Full criteria + edge cases at [`../../docs/product-definition.md`](../../docs/pr
 
 ## Connects to
 
-- **[`../sources/{slug}.md`](../sources/)** — `hackathon_slug` field on deep entries and `Hackathons` column on masterlist rows reference per-hackathon canonical files.
-- **[`../ideas/{slug}.md`](../ideas/)** — per-idea `### Past products` bullets reference these by name.
-- **`site/products.html`** — cards on bitcoinproducts.xyz/products.html are built from these files plus the masterlist.
+- **[`../sources/{slug}.md`](../sources/)**: `hackathon_slug` field on deep entries and `Hackathons` column on masterlist rows reference per-hackathon canonical files.
+- **[`../ideas/{slug}.md`](../ideas/)**: per-idea `### Past products` bullets reference these by name.
+- **`site/products.html`**: cards on bitcoinproducts.xyz/products.html are built from these files plus the masterlist.

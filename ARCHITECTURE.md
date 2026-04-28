@@ -57,13 +57,13 @@ repo root/
 
 ## The three data folders
 
-### `data/ideas/` — forward-looking jobs to build
+### `data/ideas/`: forward-looking jobs to build
 
 35 files. Each is one canonical idea: a job-to-be-done that bitcoin builders could pick up. The slug is the filename.
 
 Schema in [`data/ideas/README.md`](data/ideas/README.md). Key fields: `idea` (the one-line headline), `body` (the longer prose), `category`, `archetype`, `audiences`. Each file also carries a `### Past products` section listing every hackathon attempt at that idea.
 
-### `data/products/` — the bitcoin product archive
+### `data/products/`: the bitcoin product archive
 
 Two layers in one folder.
 
@@ -73,7 +73,7 @@ Two layers in one folder.
 
 Schema + scope vocabulary in [`data/products/README.md`](data/products/README.md).
 
-### `data/sources/` — the hackathon registry
+### `data/sources/`: the hackathon registry
 
 118 files. Each is one canonical hackathon (or buildathon, grant cohort, makeathon). The slug includes the year (`berlin-bitcoin-2012`).
 

@@ -45,13 +45,13 @@ These provide the per-event metadata that products reference via their `hackatho
 
 Each file has up to four sections after the field table:
 
-- `### Winners` — placements (1st, 2nd, 3rd, etc.) with the winning product names. Optional; only present when the data is available.
-- `### Notes` — organizer / judge / sponsor / era flavor. Free-form prose preserving context that doesn't fit the schema fields.
-- `### Sources` — recap and announcement links extracted from Notes.
-- `### Products from this hackathon` — auto-derived cross-link list of per-product `.md` files at [`../products/{slug}.md`](../products/) whose `hackathon_slug` includes this slug.
+- `### Winners`: placements (1st, 2nd, 3rd, etc.) with the winning product names. Optional; only present when the data is available.
+- `### Notes`: organizer / judge / sponsor / era flavor. Free-form prose preserving context that doesn't fit the schema fields.
+- `### Sources`: recap and announcement links extracted from Notes.
+- `### Products from this hackathon`: auto-derived cross-link list of per-product `.md` files at [`../products/{slug}.md`](../products/) whose `hackathon_slug` includes this slug.
 
 ## Connects to
 
-- **[`../products/{slug}.md`](../products/)** — per-product deep entries reference these via their `hackathon_slug` field; per-product breadth rows in [`../products/0-masterlist.md`](../products/0-masterlist.md) reference these via their `Hackathons` column.
-- **[`../ideas/{slug}.md`](../ideas/)** — `### Past products` bullets in per-idea files name a hackathon-slug as the second-position parens token.
-- **`site/products.html`** and **`site/ideas.html`** — the build pipeline reads each per-hackathon file's `name` field to render hackathon labels on cards.
+- **[`../products/{slug}.md`](../products/)**: per-product deep entries reference these via their `hackathon_slug` field; per-product breadth rows in [`../products/0-masterlist.md`](../products/0-masterlist.md) reference these via their `Hackathons` column.
+- **[`../ideas/{slug}.md`](../ideas/)**: `### Past products` bullets in per-idea files name a hackathon-slug as the second-position parens token.
+- **`site/products.html`** and **`site/ideas.html`**: the build pipeline reads each per-hackathon file's `name` field to render hackathon labels on cards.

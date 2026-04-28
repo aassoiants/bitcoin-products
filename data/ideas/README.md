@@ -40,6 +40,6 @@ For greenfield ideas (no past attempts in our archive), the section reads `### P
 
 ## Connects to
 
-- **[`../products/{slug}.md`](../products/)** — product names in the Past products section reference per-product deep entries.
-- **[`../sources/{slug}.md`](../sources/)** — hackathon slugs in Past products bullets reference per-hackathon canonical files.
-- **`site/ideas.html`** — cards on bitcoinproducts.xyz/ideas.html are derived from these files.
+- **[`../products/{slug}.md`](../products/)**: product names in the Past products section reference per-product deep entries.
+- **[`../sources/{slug}.md`](../sources/)**: hackathon slugs in Past products bullets reference per-hackathon canonical files.
+- **`site/ideas.html`**: cards on bitcoinproducts.xyz/ideas.html are derived from these files.
