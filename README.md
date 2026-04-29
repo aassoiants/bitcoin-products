@@ -6,11 +6,11 @@
 
 **Live at [bitcoinproducts.xyz](https://bitcoinproducts.xyz)** *(beta)*.
 
-The bitcoin ecosystem's open problems are visible only to people already deep inside it. New builders show up ready to ship and can't see what needs building. Returning builders waste cycles on paths the last cohort already exhausted. Strategists trying to read the arc are stuck stitching it together from twelve dead Devpost galleries.
+The bitcoin ecosystem's open problems are visible only to people already deep inside it. New builders show up ready to ship and can't see what needs building. Returning builders waste cycles on paths the last cohort already explored. Strategists trying to read the arc are stuck stitching it together from twelve dead Devpost galleries.
 
 We built bitcoinproducts.xyz to fix that. Two surfaces over one data layer:
 
-- **IDEAS.TXT** is 35 forward-looking ideas that still need a winner, each anchored in a decade of past attempts so you can see what's been tried and where the openings are.
+- **IDEAS.TXT** is 35 forward-looking ideas, each anchored in a decade of past attempts so you can see what's been tried and where the openings are.
 - **PRODUCTS.TXT** is 76 bitcoin products read end to end plus 492 indexed across 118 hackathons since 2012. Filterable by year, hackathon, status, category, spec, and more.
 
 For motivated bitcoin builders picking their next project. For strategists mapping the arc. For researchers tracking who built what when. The archive collapses your search-cost from "scroll twelve dead galleries" to "open one page, filter, decide."
@@ -150,7 +150,7 @@ The build scripts are plain Node (no dependencies). Run them from the repo root 
 - **Sources page** at [bitcoinproducts.xyz/sources.html](https://bitcoinproducts.xyz/sources.html). A filterable, searchable, sortable list of all 118 hackathons. Sort by year, organizer, type, count confidence, products indexed, products deeply analyzed. Built from [`data/sources/`](data/sources/).
 - **Corpus expansion beyond hackathons.** The hackathon corpus is the starting point, not the ceiling. Bring in user-submitted products, VC-funded bitcoin companies, grant-funded products from organizations like HRF, Brink, Vinteum, Btrust, and other sources outside the hackathon track.
 - **Dashboard** at [bitcoinproducts.xyz/dashboard.html](https://bitcoinproducts.xyz/dashboard.html). A deep dive into bitcoin product history for strategists and researchers. How the space has shifted year by year, which problems got sustained attention, builder-recurrence patterns, alive-rates per category, era framing.
-- **Conversational interface over the archive.** Ask the data in plain English: "what bitcoin payment ideas have been tried since 2018 and didn't stick?", "which builders shipped multiple products across years?", "what ideas have zero alive past attempts?" The per-idea, per-product, and per-hackathon files become a queryable knowledge base for builders deciding what to ship next.
+- **Conversational interface over the archive.** Ask the data in plain English: "what bitcoin payment ideas have been tried, and which products are still alive?", "which builders shipped multiple products across years?", "what ideas have zero alive past attempts?" The per-idea, per-product, and per-hackathon files become a queryable knowledge base for builders deciding what to ship next.
 - **Builder profiles.** Per-handle pages showing every product a builder has submitted across hackathons, repeat-builder patterns, eras of activity. Surfaces the people behind the products.
 
 ---

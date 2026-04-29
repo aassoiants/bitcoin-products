@@ -4,8 +4,8 @@
 |---|---|
 | slug | node-activity-viewer |
 | idea | Show people what their bitcoin node is actually doing. |
-| card_body | Bitcoin Core proposed a showcase design for visualizing node activity. Nobody has built it as a real desktop app yet. The design exists. The implementation doesn't. |
-| body | Bitcoin Core proposed a [showcase design](https://bitcoincore.app/showcase/) for visualizing node activity. Nobody has built it as a real desktop app yet. The design exists. The implementation doesn't. |
+| card_body | Bitcoin Core proposed a showcase design for visualizing node activity. The design exists, so give it a go. |
+| body | Bitcoin Core proposed a [showcase design](https://bitcoincore.app/showcase/) for visualizing node activity. The design exists, so give it a go. |
 | category | visibility |
 | archetype | wire,build |
 | audiences | node-operator |
