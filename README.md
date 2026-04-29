@@ -123,28 +123,6 @@ See [`data/sources/berlin-bitcoin-2012.md`](data/sources/berlin-bitcoin-2012.md)
 
 ---
 
-## Run locally
-
-Static site, no build needed:
-
-```bash
-git clone https://github.com/aassoiants/bitcoin-products
-cd bitcoin-products
-python -m http.server 8000 --directory site
-# open http://localhost:8000
-```
-
-Rebuild after editing data:
-
-```bash
-node utilities/build-products-json.mjs    # rewrites site/products.html
-node utilities/build-ideas-products.mjs   # rewrites site/ideas.html
-```
-
-The build scripts are plain Node (no dependencies). Run them from the repo root after editing any `.md` file in `data/`.
-
----
-
 ## Coming next
 
 - **Sources page** at [bitcoinproducts.xyz/sources.html](https://bitcoinproducts.xyz/sources.html). A filterable, searchable, sortable list of all 118 hackathons. Sort by year, organizer, type, count confidence, products indexed, products deeply analyzed. Built from [`data/sources/`](data/sources/).
@@ -172,6 +150,28 @@ The fastest path is a pull request that edits a single `.md` file.
 ## Acknowledgments
 
 The `categories` vocabulary on per-product entries is borrowed from [Bitcoin Optech](https://bitcoinops.org)'s 20 topic categories, with 8 layer-2 break-outs added (Cashu, Fedimint, Ark, Liquid, Statechain, RGB, Taproot Assets, Node Infrastructure). Optech's newsletter and topic taxonomy are essential reading for anyone working on bitcoin protocol or layer-2 development.
+
+## Run locally
+
+Static site, no build needed:
+
+```bash
+git clone https://github.com/aassoiants/bitcoin-products
+cd bitcoin-products
+python -m http.server 8000 --directory site
+# open http://localhost:8000
+```
+
+Rebuild after editing data:
+
+```bash
+node utilities/build-products-json.mjs    # rewrites site/products.html
+node utilities/build-ideas-products.mjs   # rewrites site/ideas.html
+```
+
+The build scripts are plain Node (no dependencies). Run them from the repo root after editing any `.md` file in `data/`.
+
+---
 
 ## License
 
