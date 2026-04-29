@@ -128,8 +128,8 @@ See [`data/sources/berlin-bitcoin-2012.md`](data/sources/berlin-bitcoin-2012.md)
 Static site, no build needed:
 
 ```bash
-git clone https://github.com/aassoiants/bitcoin-product-ideas
-cd bitcoin-product-ideas
+git clone https://github.com/aassoiants/bitcoin-products
+cd bitcoin-products
 python -m http.server 8000 --directory site
 # open http://localhost:8000
 ```
@@ -164,7 +164,7 @@ The fastest path is a pull request that edits a single `.md` file.
 - **Pick a breadth-only product and deep-analyze it.** Browse the breadth catalog at [`data/products/0-masterlist.md`](data/products/0-masterlist.md). Each row is a hackathon submission we've cataloged but not yet analyzed in depth. If you know one well enough to fill in the full schema (status, source code, mechanism, awards, last activity, etc.), PR a new `data/products/{slug}.md`. The `unclear`-scope rows in particular need community eyes to confirm whether the underlying repo actually uses bitcoin.
 - **Submit a hackathon we missed.** Regional events, university-run buildathons. Open an issue or PR a new `data/sources/{slug}.md`. Please provide the link of products worked on if there is one available. 
 - **Add a way to slice or analyze the data.** Open an issue describing the cut you want: by builder recurrence, by spec maturity, by alive-rate per year, by anything. We'll consider adding it as a filter facet or a new surface.
-- **Tell us how this informed a decision.** Did you pick a project, kill a project, change scope, or learn something about the space using the archive? [Open an issue](https://github.com/aassoiants/bitcoin-product-ideas/issues/new) and tell us. The patterns of how it gets used shape what we ship next.
+- **Tell us how this informed a decision.** Did you pick a project, kill a project, change scope, or learn something about the space using the archive? [Open an issue](https://github.com/aassoiants/bitcoin-products/issues/new) and tell us. The patterns of how it gets used shape what we ship next.
 - **Anything else.** If you see a use we haven't named, open an issue describing the work. The contribution surface is intentionally open-ended.
 
 ---
